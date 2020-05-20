@@ -152,6 +152,33 @@
 - (void)wReloadData;
 //自定义刷新
 - (void)wReloadData:(FormCustomReload)block;
+
 ```
+安装
+==============
+
+### CocoaPods
+1. 将 cocoapods 更新至最新版本.
+2. 在 Podfile 中添加 `pod 'WMZForm'`。
+3. 执行 `pod install` 或 `pod update`。
+4. 导入 #import "WMZForm.h"。
+
+### 注:要消除链式编程的警告 
+要在Buildding Settings 把CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF 设为NO
+
+### 手动安装
+1. 下载 WMZForm 文件夹内的所有内容。
+2. 将 WMZForm 内的源文件和依赖的库添加(拖放)到你的工程。
+3. 导入 #import "WMZForm.h"
+
+### 依赖
+1WMZDialog（弹窗控件）
+2 Masonry
+3 SDWebImage
+4 IQKeyboardManager 
+
+使用过程中如果有什么bug欢迎给我提issue 我看到就会解决
+觉得有用的话给个star
+
  [简书地址](https://www.jianshu.com/p/fb3c85f71924)
 
