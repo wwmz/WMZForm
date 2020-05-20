@@ -1,0 +1,1164 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25474CC7B5099961BE148B1B /* Pods_WMZForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5B7CB95966F026E6E99150 /* Pods_WMZForm.framework */; };
+		3DAC124068EBD29DB19B9E39 /* Pods_WMZFormUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3497BD7543DD7346CC697AA9 /* Pods_WMZFormUITests.framework */; };
+		9510155687232E718CF81CCF /* Pods_WMZFormTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDFF52ADA58232DCB8B910 /* Pods_WMZFormTests.framework */; };
+		F304CDB7245C5EF60045261D /* WMZFormEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = F304CDB6245C5EF60045261D /* WMZFormEmptyView.m */; };
+		F30B5A602469385F0068D077 /* WMZFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A462469385F0068D077 /* WMZFormBaseCell.m */; };
+		F30B5A612469385F0068D077 /* WMZFormTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A4A2469385F0068D077 /* WMZFormTextCell.m */; };
+		F30B5A622469385F0068D077 /* WMZFormNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A4B2469385F0068D077 /* WMZFormNormalCell.m */; };
+		F30B5A632469385F0068D077 /* WMZFormIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A4C2469385F0068D077 /* WMZFormIconCell.m */; };
+		F30B5A642469385F0068D077 /* WMZFormTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A552469385F0068D077 /* WMZFormTagCell.m */; };
+		F30B5A652469385F0068D077 /* WMZFormImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A562469385F0068D077 /* WMZFormImageCell.m */; };
+		F30B5A662469385F0068D077 /* WMZFormInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A572469385F0068D077 /* WMZFormInputCell.m */; };
+		F30B5A672469385F0068D077 /* WMZFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A582469385F0068D077 /* WMZFormSwitchCell.m */; };
+		F30B5A682469385F0068D077 /* WMZFormCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A592469385F0068D077 /* WMZFormCheckCell.m */; };
+		F30B5A692469385F0068D077 /* WMZFormVerificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A5A2469385F0068D077 /* WMZFormVerificationCell.m */; };
+		F30B5A6A2469385F0068D077 /* WMZFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A5B2469385F0068D077 /* WMZFormTextViewCell.m */; };
+		F30B5A71246939540068D077 /* AllPropertiesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B5A70246939540068D077 /* AllPropertiesVC.m */; };
+		F32BEAA5246FDB8600151655 /* TouTiaoTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BEAA4246FDB8600151655 /* TouTiaoTabbar.m */; };
+		F32BEAA8246FDB9D00151655 /* ToutiaoHome.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BEAA7246FDB9D00151655 /* ToutiaoHome.m */; };
+		F32BEAAB246FDBAC00151655 /* ToutTiaoSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BEAAA246FDBAC00151655 /* ToutTiaoSetting.m */; };
+		F32BEAAF24700C7F00151655 /* TouTiaoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BEAAE24700C7F00151655 /* TouTiaoCommentCell.m */; };
+		F32BEAB22470186500151655 /* WMZFormDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BEAB12470186500151655 /* WMZFormDefaultCell.m */; };
+		F3309E7823FE5FB400E7C693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3309E7723FE5FB400E7C693 /* AppDelegate.m */; };
+		F3309E7E23FE5FB400E7C693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3309E7D23FE5FB400E7C693 /* ViewController.m */; };
+		F3309E8123FE5FB400E7C693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3309E7F23FE5FB400E7C693 /* Main.storyboard */; };
+		F3309E8323FE5FB800E7C693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3309E8223FE5FB800E7C693 /* Assets.xcassets */; };
+		F3309E8623FE5FB800E7C693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3309E8423FE5FB800E7C693 /* LaunchScreen.storyboard */; };
+		F3309E8923FE5FB800E7C693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3309E8823FE5FB800E7C693 /* main.m */; };
+		F3309E9323FE5FB800E7C693 /* WMZFormTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3309E9223FE5FB800E7C693 /* WMZFormTests.m */; };
+		F3309E9E23FE5FB800E7C693 /* WMZFormUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3309E9D23FE5FB800E7C693 /* WMZFormUITests.m */; };
+		F337403E2467E1C900296C5B /* PhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F33740322467E1C900296C5B /* PhotoBrowser.m */; };
+		F337403F2467E1C900296C5B /* WaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F33740342467E1C900296C5B /* WaitingView.m */; };
+		F33740402467E1C900296C5B /* BrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F33740382467E1C900296C5B /* BrowserImageView.m */; };
+		F33740412467E1C900296C5B /* WMZFormTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F337403A2467E1C900296C5B /* WMZFormTool.m */; };
+		F33740422467E1C900296C5B /* WMZFormBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F337403C2467E1C900296C5B /* WMZFormBtn.m */; };
+		F33740482467E25C00296C5B /* FormPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = F33740452467E25C00296C5B /* FormPermission.m */; };
+		F33740492467E25C00296C5B /* WMZFormPhotoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = F33740462467E25C00296C5B /* WMZFormPhotoFunction.m */; };
+		F341F8A22469936F00575DBA /* TencenTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F341F8A12469936F00575DBA /* TencenTabbar.m */; };
+		F341F8A5246993FE00575DBA /* TencenFriendGroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F341F8A4246993FE00575DBA /* TencenFriendGroupVC.m */; };
+		F341F8A82469940D00575DBA /* TencenSetingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F341F8A72469940D00575DBA /* TencenSetingVC.m */; };
+		F341F8AC2469A21600575DBA /* TencenFriendCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F341F8AB2469A21600575DBA /* TencenFriendCommentCell.m */; };
+		F3531BC7246BCAF500C0DDC0 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3531BC3246BCAF400C0DDC0 /* YYWeakProxy.m */; };
+		F3531BC8246BCAF500C0DDC0 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3531BC5246BCAF400C0DDC0 /* YYFPSLabel.m */; };
+		F3531BCB246BD2DE00C0DDC0 /* WMZFormCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3531BCA246BD2DE00C0DDC0 /* WMZFormCommitCell.m */; };
+		F3531BCF246BDF2B00C0DDC0 /* FormPushListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3531BCE246BDF2B00C0DDC0 /* FormPushListVC.m */; };
+		F366D833246B0258009C02C0 /* SelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D832246B0257009C02C0 /* SelectVC.m */; };
+		F366D836246B0373009C02C0 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D835246B0373009C02C0 /* BaseVC.m */; };
+		F366D839246B0B74009C02C0 /* WMZFormEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F366D838246B0B74009C02C0 /* WMZFormEditCell.m */; };
+		F3E7FA77244C322A0019F0D8 /* WMZFormBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FA64244C322A0019F0D8 /* WMZFormBase.m */; };
+		F3E7FA78244C322A0019F0D8 /* WMZForm.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FA66244C322A0019F0D8 /* WMZForm.m */; };
+		F3E7FA7C244C322A0019F0D8 /* WMZFormSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FA73244C322A0019F0D8 /* WMZFormSectionModel.m */; };
+		F3E7FA7D244C322A0019F0D8 /* WMZFormRowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FA74244C322A0019F0D8 /* WMZFormRowModel.m */; };
+		F3F3D902246C2DB300FD0E07 /* WMZFormTakePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3D901246C2DB300FD0E07 /* WMZFormTakePictureCell.m */; };
+		F3F3D908246C45A400FD0E07 /* UIImage+imageNameWithBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3D907246C45A300FD0E07 /* UIImage+imageNameWithBundle.m */; };
+		F3F3D90A246C45C600FD0E07 /* WMZForm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3F3D909246C45C600FD0E07 /* WMZForm.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3309E8F23FE5FB800E7C693 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3309E6B23FE5FB400E7C693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3309E7223FE5FB400E7C693;
+			remoteInfo = WMZForm;
+		};
+		F3309E9A23FE5FB800E7C693 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3309E6B23FE5FB400E7C693 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3309E7223FE5FB400E7C693;
+			remoteInfo = WMZForm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3497BD7543DD7346CC697AA9 /* Pods_WMZFormUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WMZFormUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		490B917CC63BCE10285872A3 /* Pods-WMZFormUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WMZFormUITests.release.xcconfig"; path = "Target Support Files/Pods-WMZFormUITests/Pods-WMZFormUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4BC96E3B25D63B5B48B0F590 /* Pods-WMZForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WMZForm.release.xcconfig"; path = "Target Support Files/Pods-WMZForm/Pods-WMZForm.release.xcconfig"; sourceTree = "<group>"; };
+		6B72A2AC7049C1F4DA263DAD /* Pods-WMZFormTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WMZFormTests.release.xcconfig"; path = "Target Support Files/Pods-WMZFormTests/Pods-WMZFormTests.release.xcconfig"; sourceTree = "<group>"; };
+		6F5B7CB95966F026E6E99150 /* Pods_WMZForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WMZForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C090E6130F8EA49A775B18 /* Pods-WMZFormTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WMZFormTests.debug.xcconfig"; path = "Target Support Files/Pods-WMZFormTests/Pods-WMZFormTests.debug.xcconfig"; sourceTree = "<group>"; };
+		805E2BF9936F73200E66DF34 /* Pods-WMZForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WMZForm.debug.xcconfig"; path = "Target Support Files/Pods-WMZForm/Pods-WMZForm.debug.xcconfig"; sourceTree = "<group>"; };
+		92CDFF52ADA58232DCB8B910 /* Pods_WMZFormTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WMZFormTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F304CDB5245C5EF60045261D /* WMZFormEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMZFormEmptyView.h; sourceTree = "<group>"; };
+		F304CDB6245C5EF60045261D /* WMZFormEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMZFormEmptyView.m; sourceTree = "<group>"; };
+		F30B5A462469385F0068D077 /* WMZFormBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormBaseCell.m; sourceTree = "<group>"; };
+		F30B5A472469385F0068D077 /* WMZFormBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormBaseCell.h; sourceTree = "<group>"; };
+		F30B5A492469385F0068D077 /* WMZFormIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormIconCell.h; sourceTree = "<group>"; };
+		F30B5A4A2469385F0068D077 /* WMZFormTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormTextCell.m; sourceTree = "<group>"; };
+		F30B5A4B2469385F0068D077 /* WMZFormNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormNormalCell.m; sourceTree = "<group>"; };
+		F30B5A4C2469385F0068D077 /* WMZFormIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormIconCell.m; sourceTree = "<group>"; };
+		F30B5A4D2469385F0068D077 /* WMZFormTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormTextCell.h; sourceTree = "<group>"; };
+		F30B5A4E2469385F0068D077 /* WMZFormNormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormNormalCell.h; sourceTree = "<group>"; };
+		F30B5A502469385F0068D077 /* WMZFormCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormCheckCell.h; sourceTree = "<group>"; };
+		F30B5A512469385F0068D077 /* WMZFormSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormSwitchCell.h; sourceTree = "<group>"; };
+		F30B5A522469385F0068D077 /* WMZFormInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormInputCell.h; sourceTree = "<group>"; };
+		F30B5A532469385F0068D077 /* WMZFormVerificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormVerificationCell.h; sourceTree = "<group>"; };
+		F30B5A542469385F0068D077 /* WMZFormTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormTextViewCell.h; sourceTree = "<group>"; };
+		F30B5A552469385F0068D077 /* WMZFormTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormTagCell.m; sourceTree = "<group>"; };
+		F30B5A562469385F0068D077 /* WMZFormImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormImageCell.m; sourceTree = "<group>"; };
+		F30B5A572469385F0068D077 /* WMZFormInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormInputCell.m; sourceTree = "<group>"; };
+		F30B5A582469385F0068D077 /* WMZFormSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormSwitchCell.m; sourceTree = "<group>"; };
+		F30B5A592469385F0068D077 /* WMZFormCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormCheckCell.m; sourceTree = "<group>"; };
+		F30B5A5A2469385F0068D077 /* WMZFormVerificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormVerificationCell.m; sourceTree = "<group>"; };
+		F30B5A5B2469385F0068D077 /* WMZFormTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormTextViewCell.m; sourceTree = "<group>"; };
+		F30B5A5C2469385F0068D077 /* WMZFormImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormImageCell.h; sourceTree = "<group>"; };
+		F30B5A5D2469385F0068D077 /* WMZFormTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormTagCell.h; sourceTree = "<group>"; };
+		F30B5A6F246939540068D077 /* AllPropertiesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllPropertiesVC.h; sourceTree = "<group>"; };
+		F30B5A70246939540068D077 /* AllPropertiesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllPropertiesVC.m; sourceTree = "<group>"; };
+		F30B5A75246940890068D077 /* WMZFormDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMZFormDelegate.h; sourceTree = "<group>"; };
+		F30B5A79246957F80068D077 /* WMZFormCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMZFormCellDelegate.h; sourceTree = "<group>"; };
+		F32BEAA3246FDB8600151655 /* TouTiaoTabbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouTiaoTabbar.h; sourceTree = "<group>"; };
+		F32BEAA4246FDB8600151655 /* TouTiaoTabbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouTiaoTabbar.m; sourceTree = "<group>"; };
+		F32BEAA6246FDB9D00151655 /* ToutiaoHome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToutiaoHome.h; sourceTree = "<group>"; };
+		F32BEAA7246FDB9D00151655 /* ToutiaoHome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToutiaoHome.m; sourceTree = "<group>"; };
+		F32BEAA9246FDBAC00151655 /* ToutTiaoSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToutTiaoSetting.h; sourceTree = "<group>"; };
+		F32BEAAA246FDBAC00151655 /* ToutTiaoSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToutTiaoSetting.m; sourceTree = "<group>"; };
+		F32BEAAD24700C7F00151655 /* TouTiaoCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouTiaoCommentCell.h; sourceTree = "<group>"; };
+		F32BEAAE24700C7F00151655 /* TouTiaoCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouTiaoCommentCell.m; sourceTree = "<group>"; };
+		F32BEAB02470186500151655 /* WMZFormDefaultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMZFormDefaultCell.h; sourceTree = "<group>"; };
+		F32BEAB12470186500151655 /* WMZFormDefaultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMZFormDefaultCell.m; sourceTree = "<group>"; };
+		F3309E7323FE5FB400E7C693 /* WMZForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WMZForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3309E7623FE5FB400E7C693 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F3309E7723FE5FB400E7C693 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F3309E7C23FE5FB400E7C693 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F3309E7D23FE5FB400E7C693 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F3309E8023FE5FB400E7C693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3309E8223FE5FB800E7C693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3309E8523FE5FB800E7C693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F3309E8723FE5FB800E7C693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3309E8823FE5FB800E7C693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F3309E8E23FE5FB800E7C693 /* WMZFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WMZFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3309E9223FE5FB800E7C693 /* WMZFormTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMZFormTests.m; sourceTree = "<group>"; };
+		F3309E9423FE5FB800E7C693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3309E9923FE5FB800E7C693 /* WMZFormUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WMZFormUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3309E9D23FE5FB800E7C693 /* WMZFormUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMZFormUITests.m; sourceTree = "<group>"; };
+		F3309E9F23FE5FB800E7C693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F33740322467E1C900296C5B /* PhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowser.m; sourceTree = "<group>"; };
+		F33740332467E1C900296C5B /* PhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserConfig.h; sourceTree = "<group>"; };
+		F33740342467E1C900296C5B /* WaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingView.m; sourceTree = "<group>"; };
+		F33740352467E1C900296C5B /* BrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserImageView.h; sourceTree = "<group>"; };
+		F33740362467E1C900296C5B /* PhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrowser.h; sourceTree = "<group>"; };
+		F33740372467E1C900296C5B /* WaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingView.h; sourceTree = "<group>"; };
+		F33740382467E1C900296C5B /* BrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserImageView.m; sourceTree = "<group>"; };
+		F337403A2467E1C900296C5B /* WMZFormTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormTool.m; sourceTree = "<group>"; };
+		F337403B2467E1C900296C5B /* WMZFormBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormBtn.h; sourceTree = "<group>"; };
+		F337403C2467E1C900296C5B /* WMZFormBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormBtn.m; sourceTree = "<group>"; };
+		F337403D2467E1C900296C5B /* WMZFormTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormTool.h; sourceTree = "<group>"; };
+		F33740442467E25C00296C5B /* WMZFormPhotoFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormPhotoFunction.h; sourceTree = "<group>"; };
+		F33740452467E25C00296C5B /* FormPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormPermission.m; sourceTree = "<group>"; };
+		F33740462467E25C00296C5B /* WMZFormPhotoFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormPhotoFunction.m; sourceTree = "<group>"; };
+		F33740472467E25C00296C5B /* FormPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormPermission.h; sourceTree = "<group>"; };
+		F341F8A02469936F00575DBA /* TencenTabbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TencenTabbar.h; sourceTree = "<group>"; };
+		F341F8A12469936F00575DBA /* TencenTabbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TencenTabbar.m; sourceTree = "<group>"; };
+		F341F8A3246993FE00575DBA /* TencenFriendGroupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TencenFriendGroupVC.h; sourceTree = "<group>"; };
+		F341F8A4246993FE00575DBA /* TencenFriendGroupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TencenFriendGroupVC.m; sourceTree = "<group>"; };
+		F341F8A62469940D00575DBA /* TencenSetingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TencenSetingVC.h; sourceTree = "<group>"; };
+		F341F8A72469940D00575DBA /* TencenSetingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TencenSetingVC.m; sourceTree = "<group>"; };
+		F341F8AA2469A21600575DBA /* TencenFriendCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TencenFriendCommentCell.h; sourceTree = "<group>"; };
+		F341F8AB2469A21600575DBA /* TencenFriendCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TencenFriendCommentCell.m; sourceTree = "<group>"; };
+		F3531BC3246BCAF400C0DDC0 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
+		F3531BC4246BCAF400C0DDC0 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
+		F3531BC5246BCAF400C0DDC0 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
+		F3531BC6246BCAF500C0DDC0 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
+		F3531BC9246BD2DE00C0DDC0 /* WMZFormCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormCommitCell.h; sourceTree = "<group>"; };
+		F3531BCA246BD2DE00C0DDC0 /* WMZFormCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormCommitCell.m; sourceTree = "<group>"; };
+		F3531BCD246BDF2B00C0DDC0 /* FormPushListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormPushListVC.h; sourceTree = "<group>"; };
+		F3531BCE246BDF2B00C0DDC0 /* FormPushListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormPushListVC.m; sourceTree = "<group>"; };
+		F366D831246B0257009C02C0 /* SelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectVC.h; sourceTree = "<group>"; };
+		F366D832246B0257009C02C0 /* SelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectVC.m; sourceTree = "<group>"; };
+		F366D834246B0373009C02C0 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		F366D835246B0373009C02C0 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		F366D837246B0B74009C02C0 /* WMZFormEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMZFormEditCell.h; sourceTree = "<group>"; };
+		F366D838246B0B74009C02C0 /* WMZFormEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMZFormEditCell.m; sourceTree = "<group>"; };
+		F3E7FA64244C322A0019F0D8 /* WMZFormBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormBase.m; sourceTree = "<group>"; };
+		F3E7FA65244C322A0019F0D8 /* WMZFormMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormMacro.h; sourceTree = "<group>"; };
+		F3E7FA66244C322A0019F0D8 /* WMZForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZForm.m; sourceTree = "<group>"; };
+		F3E7FA67244C322A0019F0D8 /* WMZFormBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormBase.h; sourceTree = "<group>"; };
+		F3E7FA68244C322A0019F0D8 /* WMZForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZForm.h; sourceTree = "<group>"; };
+		F3E7FA73244C322A0019F0D8 /* WMZFormSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormSectionModel.m; sourceTree = "<group>"; };
+		F3E7FA74244C322A0019F0D8 /* WMZFormRowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZFormRowModel.m; sourceTree = "<group>"; };
+		F3E7FA75244C322A0019F0D8 /* WMZFormSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormSectionModel.h; sourceTree = "<group>"; };
+		F3E7FA76244C322A0019F0D8 /* WMZFormRowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZFormRowModel.h; sourceTree = "<group>"; };
+		F3F3D900246C2DB300FD0E07 /* WMZFormTakePictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMZFormTakePictureCell.h; sourceTree = "<group>"; };
+		F3F3D901246C2DB300FD0E07 /* WMZFormTakePictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMZFormTakePictureCell.m; sourceTree = "<group>"; };
+		F3F3D906246C45A300FD0E07 /* UIImage+imageNameWithBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageNameWithBundle.h"; sourceTree = "<group>"; };
+		F3F3D907246C45A300FD0E07 /* UIImage+imageNameWithBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageNameWithBundle.m"; sourceTree = "<group>"; };
+		F3F3D909246C45C600FD0E07 /* WMZForm.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMZForm.bundle; sourceTree = "<group>"; };
+		F95CE872B017F87688795895 /* Pods-WMZFormUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WMZFormUITests.debug.xcconfig"; path = "Target Support Files/Pods-WMZFormUITests/Pods-WMZFormUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3309E7023FE5FB400E7C693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25474CC7B5099961BE148B1B /* Pods_WMZForm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3309E8B23FE5FB800E7C693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9510155687232E718CF81CCF /* Pods_WMZFormTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3309E9623FE5FB800E7C693 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DAC124068EBD29DB19B9E39 /* Pods_WMZFormUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1ACDC1747BB6B6B48459B814 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F5B7CB95966F026E6E99150 /* Pods_WMZForm.framework */,
+				92CDFF52ADA58232DCB8B910 /* Pods_WMZFormTests.framework */,
+				3497BD7543DD7346CC697AA9 /* Pods_WMZFormUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FC9CBA075B1B51CDD765104 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				805E2BF9936F73200E66DF34 /* Pods-WMZForm.debug.xcconfig */,
+				4BC96E3B25D63B5B48B0F590 /* Pods-WMZForm.release.xcconfig */,
+				75C090E6130F8EA49A775B18 /* Pods-WMZFormTests.debug.xcconfig */,
+				6B72A2AC7049C1F4DA263DAD /* Pods-WMZFormTests.release.xcconfig */,
+				F95CE872B017F87688795895 /* Pods-WMZFormUITests.debug.xcconfig */,
+				490B917CC63BCE10285872A3 /* Pods-WMZFormUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F304CDB1245C5EDC0045261D /* WMZFormEmpty */ = {
+			isa = PBXGroup;
+			children = (
+				F304CDB5245C5EF60045261D /* WMZFormEmptyView.h */,
+				F304CDB6245C5EF60045261D /* WMZFormEmptyView.m */,
+			);
+			path = WMZFormEmpty;
+			sourceTree = "<group>";
+		};
+		F30B5A442469385F0068D077 /* WMZFormCell */ = {
+			isa = PBXGroup;
+			children = (
+				F30B5A452469385F0068D077 /* BaseCell(自定义需继承) */,
+				F30B5A482469385F0068D077 /* ShowCell(展示) */,
+				F30B5A4F2469385F0068D077 /* EditCell(可编辑) */,
+				F30B5A5E2469385F0068D077 /* delegate(代理) */,
+			);
+			path = WMZFormCell;
+			sourceTree = "<group>";
+		};
+		F30B5A452469385F0068D077 /* BaseCell(自定义需继承) */ = {
+			isa = PBXGroup;
+			children = (
+				F30B5A472469385F0068D077 /* WMZFormBaseCell.h */,
+				F30B5A462469385F0068D077 /* WMZFormBaseCell.m */,
+			);
+			path = "BaseCell(自定义需继承)";
+			sourceTree = "<group>";
+		};
+		F30B5A482469385F0068D077 /* ShowCell(展示) */ = {
+			isa = PBXGroup;
+			children = (
+				F3531BC9246BD2DE00C0DDC0 /* WMZFormCommitCell.h */,
+				F3531BCA246BD2DE00C0DDC0 /* WMZFormCommitCell.m */,
+				F30B5A492469385F0068D077 /* WMZFormIconCell.h */,
+				F30B5A4C2469385F0068D077 /* WMZFormIconCell.m */,
+				F30B5A4D2469385F0068D077 /* WMZFormTextCell.h */,
+				F30B5A4A2469385F0068D077 /* WMZFormTextCell.m */,
+				F30B5A4E2469385F0068D077 /* WMZFormNormalCell.h */,
+				F30B5A4B2469385F0068D077 /* WMZFormNormalCell.m */,
+				F32BEAB02470186500151655 /* WMZFormDefaultCell.h */,
+				F32BEAB12470186500151655 /* WMZFormDefaultCell.m */,
+			);
+			path = "ShowCell(展示)";
+			sourceTree = "<group>";
+		};
+		F30B5A4F2469385F0068D077 /* EditCell(可编辑) */ = {
+			isa = PBXGroup;
+			children = (
+				F30B5A502469385F0068D077 /* WMZFormCheckCell.h */,
+				F30B5A592469385F0068D077 /* WMZFormCheckCell.m */,
+				F30B5A532469385F0068D077 /* WMZFormVerificationCell.h */,
+				F30B5A5A2469385F0068D077 /* WMZFormVerificationCell.m */,
+				F30B5A512469385F0068D077 /* WMZFormSwitchCell.h */,
+				F30B5A582469385F0068D077 /* WMZFormSwitchCell.m */,
+				F30B5A522469385F0068D077 /* WMZFormInputCell.h */,
+				F30B5A572469385F0068D077 /* WMZFormInputCell.m */,
+				F30B5A542469385F0068D077 /* WMZFormTextViewCell.h */,
+				F30B5A5B2469385F0068D077 /* WMZFormTextViewCell.m */,
+				F30B5A5D2469385F0068D077 /* WMZFormTagCell.h */,
+				F30B5A552469385F0068D077 /* WMZFormTagCell.m */,
+				F30B5A5C2469385F0068D077 /* WMZFormImageCell.h */,
+				F30B5A562469385F0068D077 /* WMZFormImageCell.m */,
+				F366D837246B0B74009C02C0 /* WMZFormEditCell.h */,
+				F366D838246B0B74009C02C0 /* WMZFormEditCell.m */,
+				F3F3D900246C2DB300FD0E07 /* WMZFormTakePictureCell.h */,
+				F3F3D901246C2DB300FD0E07 /* WMZFormTakePictureCell.m */,
+			);
+			path = "EditCell(可编辑)";
+			sourceTree = "<group>";
+		};
+		F30B5A5E2469385F0068D077 /* delegate(代理) */ = {
+			isa = PBXGroup;
+			children = (
+				F30B5A79246957F80068D077 /* WMZFormCellDelegate.h */,
+			);
+			path = "delegate(代理)";
+			sourceTree = "<group>";
+		};
+		F30B5A6B246938FA0068D077 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F366D830246B0257009C02C0 /* Form(表单) */,
+				F30B5A6E2469393D0068D077 /* All(展示全部属性) */,
+				F30B5A6C246938FA0068D077 /* Tencen(腾讯) */,
+				F30B5A6D246938FA0068D077 /* Toutiao(头条) */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		F30B5A6C246938FA0068D077 /* Tencen(腾讯) */ = {
+			isa = PBXGroup;
+			children = (
+				F341F8A92469A1FE00575DBA /* TencenCustomCell(自定义cell) */,
+				F341F8A02469936F00575DBA /* TencenTabbar.h */,
+				F341F8A12469936F00575DBA /* TencenTabbar.m */,
+				F341F8A3246993FE00575DBA /* TencenFriendGroupVC.h */,
+				F341F8A4246993FE00575DBA /* TencenFriendGroupVC.m */,
+				F341F8A62469940D00575DBA /* TencenSetingVC.h */,
+				F341F8A72469940D00575DBA /* TencenSetingVC.m */,
+			);
+			path = "Tencen(腾讯)";
+			sourceTree = "<group>";
+		};
+		F30B5A6D246938FA0068D077 /* Toutiao(头条) */ = {
+			isa = PBXGroup;
+			children = (
+				F32BEAAC24700C6400151655 /* ToutiaoCell */,
+				F32BEAA3246FDB8600151655 /* TouTiaoTabbar.h */,
+				F32BEAA4246FDB8600151655 /* TouTiaoTabbar.m */,
+				F32BEAA6246FDB9D00151655 /* ToutiaoHome.h */,
+				F32BEAA7246FDB9D00151655 /* ToutiaoHome.m */,
+				F32BEAA9246FDBAC00151655 /* ToutTiaoSetting.h */,
+				F32BEAAA246FDBAC00151655 /* ToutTiaoSetting.m */,
+			);
+			path = "Toutiao(头条)";
+			sourceTree = "<group>";
+		};
+		F30B5A6E2469393D0068D077 /* All(展示全部属性) */ = {
+			isa = PBXGroup;
+			children = (
+				F30B5A6F246939540068D077 /* AllPropertiesVC.h */,
+				F30B5A70246939540068D077 /* AllPropertiesVC.m */,
+			);
+			path = "All(展示全部属性)";
+			sourceTree = "<group>";
+		};
+		F32BEAAC24700C6400151655 /* ToutiaoCell */ = {
+			isa = PBXGroup;
+			children = (
+				F32BEAAD24700C7F00151655 /* TouTiaoCommentCell.h */,
+				F32BEAAE24700C7F00151655 /* TouTiaoCommentCell.m */,
+			);
+			path = ToutiaoCell;
+			sourceTree = "<group>";
+		};
+		F3309E6A23FE5FB400E7C693 = {
+			isa = PBXGroup;
+			children = (
+				F3309E7523FE5FB400E7C693 /* WMZForm */,
+				F3309E9123FE5FB800E7C693 /* WMZFormTests */,
+				F3309E9C23FE5FB800E7C693 /* WMZFormUITests */,
+				F3309E7423FE5FB400E7C693 /* Products */,
+				6FC9CBA075B1B51CDD765104 /* Pods */,
+				1ACDC1747BB6B6B48459B814 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F3309E7423FE5FB400E7C693 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3309E7323FE5FB400E7C693 /* WMZForm.app */,
+				F3309E8E23FE5FB800E7C693 /* WMZFormTests.xctest */,
+				F3309E9923FE5FB800E7C693 /* WMZFormUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3309E7523FE5FB400E7C693 /* WMZForm */ = {
+			isa = PBXGroup;
+			children = (
+				F3531BC2246BCAF400C0DDC0 /* YYFPSLabel */,
+				F30B5A6B246938FA0068D077 /* Demo */,
+				F3309EAB23FE624D00E7C693 /* WMZForm */,
+				F3309E7623FE5FB400E7C693 /* AppDelegate.h */,
+				F3309E7723FE5FB400E7C693 /* AppDelegate.m */,
+				F3309E7C23FE5FB400E7C693 /* ViewController.h */,
+				F3309E7D23FE5FB400E7C693 /* ViewController.m */,
+				F366D834246B0373009C02C0 /* BaseVC.h */,
+				F366D835246B0373009C02C0 /* BaseVC.m */,
+				F3309E7F23FE5FB400E7C693 /* Main.storyboard */,
+				F3309E8223FE5FB800E7C693 /* Assets.xcassets */,
+				F3309E8423FE5FB800E7C693 /* LaunchScreen.storyboard */,
+				F3309E8723FE5FB800E7C693 /* Info.plist */,
+				F3309E8823FE5FB800E7C693 /* main.m */,
+			);
+			path = WMZForm;
+			sourceTree = "<group>";
+		};
+		F3309E9123FE5FB800E7C693 /* WMZFormTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3309E9223FE5FB800E7C693 /* WMZFormTests.m */,
+				F3309E9423FE5FB800E7C693 /* Info.plist */,
+			);
+			path = WMZFormTests;
+			sourceTree = "<group>";
+		};
+		F3309E9C23FE5FB800E7C693 /* WMZFormUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F3309E9D23FE5FB800E7C693 /* WMZFormUITests.m */,
+				F3309E9F23FE5FB800E7C693 /* Info.plist */,
+			);
+			path = WMZFormUITests;
+			sourceTree = "<group>";
+		};
+		F3309EAB23FE624D00E7C693 /* WMZForm */ = {
+			isa = PBXGroup;
+			children = (
+				F3E7FA63244C322A0019F0D8 /* WMZFormMain */,
+				F304CDB1245C5EDC0045261D /* WMZFormEmpty */,
+				F30B5A442469385F0068D077 /* WMZFormCell */,
+				F3E7FA72244C322A0019F0D8 /* WMZFormModel */,
+				F3E7FA69244C322A0019F0D8 /* WMZFormTool */,
+			);
+			path = WMZForm;
+			sourceTree = "<group>";
+		};
+		F33740312467E1C900296C5B /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				F33740322467E1C900296C5B /* PhotoBrowser.m */,
+				F33740332467E1C900296C5B /* PhotoBrowserConfig.h */,
+				F33740342467E1C900296C5B /* WaitingView.m */,
+				F33740352467E1C900296C5B /* BrowserImageView.h */,
+				F33740362467E1C900296C5B /* PhotoBrowser.h */,
+				F33740372467E1C900296C5B /* WaitingView.h */,
+				F33740382467E1C900296C5B /* BrowserImageView.m */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		F33740392467E1C900296C5B /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				F337403D2467E1C900296C5B /* WMZFormTool.h */,
+				F337403A2467E1C900296C5B /* WMZFormTool.m */,
+				F337403B2467E1C900296C5B /* WMZFormBtn.h */,
+				F337403C2467E1C900296C5B /* WMZFormBtn.m */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		F33740432467E25C00296C5B /* FormPhotoTool */ = {
+			isa = PBXGroup;
+			children = (
+				F3F3D906246C45A300FD0E07 /* UIImage+imageNameWithBundle.h */,
+				F3F3D907246C45A300FD0E07 /* UIImage+imageNameWithBundle.m */,
+				F33740442467E25C00296C5B /* WMZFormPhotoFunction.h */,
+				F33740462467E25C00296C5B /* WMZFormPhotoFunction.m */,
+				F33740472467E25C00296C5B /* FormPermission.h */,
+				F33740452467E25C00296C5B /* FormPermission.m */,
+			);
+			path = FormPhotoTool;
+			sourceTree = "<group>";
+		};
+		F341F8A92469A1FE00575DBA /* TencenCustomCell(自定义cell) */ = {
+			isa = PBXGroup;
+			children = (
+				F341F8AA2469A21600575DBA /* TencenFriendCommentCell.h */,
+				F341F8AB2469A21600575DBA /* TencenFriendCommentCell.m */,
+			);
+			path = "TencenCustomCell(自定义cell)";
+			sourceTree = "<group>";
+		};
+		F3531BC2246BCAF400C0DDC0 /* YYFPSLabel */ = {
+			isa = PBXGroup;
+			children = (
+				F3531BC3246BCAF400C0DDC0 /* YYWeakProxy.m */,
+				F3531BC4246BCAF400C0DDC0 /* YYFPSLabel.h */,
+				F3531BC5246BCAF400C0DDC0 /* YYFPSLabel.m */,
+				F3531BC6246BCAF500C0DDC0 /* YYWeakProxy.h */,
+			);
+			path = YYFPSLabel;
+			sourceTree = "<group>";
+		};
+		F3531BCC246BDF1000C0DDC0 /* FormPushSelect */ = {
+			isa = PBXGroup;
+			children = (
+				F3531BCD246BDF2B00C0DDC0 /* FormPushListVC.h */,
+				F3531BCE246BDF2B00C0DDC0 /* FormPushListVC.m */,
+			);
+			path = FormPushSelect;
+			sourceTree = "<group>";
+		};
+		F366D830246B0257009C02C0 /* Form(表单) */ = {
+			isa = PBXGroup;
+			children = (
+				F366D831246B0257009C02C0 /* SelectVC.h */,
+				F366D832246B0257009C02C0 /* SelectVC.m */,
+			);
+			path = "Form(表单)";
+			sourceTree = "<group>";
+		};
+		F3E7FA63244C322A0019F0D8 /* WMZFormMain */ = {
+			isa = PBXGroup;
+			children = (
+				F3E7FA68244C322A0019F0D8 /* WMZForm.h */,
+				F3E7FA66244C322A0019F0D8 /* WMZForm.m */,
+				F3E7FA67244C322A0019F0D8 /* WMZFormBase.h */,
+				F3E7FA64244C322A0019F0D8 /* WMZFormBase.m */,
+				F3E7FA65244C322A0019F0D8 /* WMZFormMacro.h */,
+				F30B5A75246940890068D077 /* WMZFormDelegate.h */,
+				F3F3D909246C45C600FD0E07 /* WMZForm.bundle */,
+			);
+			path = WMZFormMain;
+			sourceTree = "<group>";
+		};
+		F3E7FA69244C322A0019F0D8 /* WMZFormTool */ = {
+			isa = PBXGroup;
+			children = (
+				F3531BCC246BDF1000C0DDC0 /* FormPushSelect */,
+				F33740432467E25C00296C5B /* FormPhotoTool */,
+				F33740312467E1C900296C5B /* Browser */,
+				F33740392467E1C900296C5B /* Expand */,
+			);
+			path = WMZFormTool;
+			sourceTree = "<group>";
+		};
+		F3E7FA72244C322A0019F0D8 /* WMZFormModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3E7FA76244C322A0019F0D8 /* WMZFormRowModel.h */,
+				F3E7FA74244C322A0019F0D8 /* WMZFormRowModel.m */,
+				F3E7FA75244C322A0019F0D8 /* WMZFormSectionModel.h */,
+				F3E7FA73244C322A0019F0D8 /* WMZFormSectionModel.m */,
+			);
+			path = WMZFormModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3309E7223FE5FB400E7C693 /* WMZForm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3309EA223FE5FB800E7C693 /* Build configuration list for PBXNativeTarget "WMZForm" */;
+			buildPhases = (
+				CC83FF3C523723A8C97F2858 /* [CP] Check Pods Manifest.lock */,
+				F3309E6F23FE5FB400E7C693 /* Sources */,
+				F3309E7023FE5FB400E7C693 /* Frameworks */,
+				F3309E7123FE5FB400E7C693 /* Resources */,
+				8005411EB1A93108599A0546 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WMZForm;
+			productName = WMZForm;
+			productReference = F3309E7323FE5FB400E7C693 /* WMZForm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F3309E8D23FE5FB800E7C693 /* WMZFormTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3309EA523FE5FB800E7C693 /* Build configuration list for PBXNativeTarget "WMZFormTests" */;
+			buildPhases = (
+				95AEEEC1B75310A1B2192CF6 /* [CP] Check Pods Manifest.lock */,
+				F3309E8A23FE5FB800E7C693 /* Sources */,
+				F3309E8B23FE5FB800E7C693 /* Frameworks */,
+				F3309E8C23FE5FB800E7C693 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3309E9023FE5FB800E7C693 /* PBXTargetDependency */,
+			);
+			name = WMZFormTests;
+			productName = WMZFormTests;
+			productReference = F3309E8E23FE5FB800E7C693 /* WMZFormTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F3309E9823FE5FB800E7C693 /* WMZFormUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3309EA823FE5FB800E7C693 /* Build configuration list for PBXNativeTarget "WMZFormUITests" */;
+			buildPhases = (
+				8FB482E1EE938BD2F9BBA467 /* [CP] Check Pods Manifest.lock */,
+				F3309E9523FE5FB800E7C693 /* Sources */,
+				F3309E9623FE5FB800E7C693 /* Frameworks */,
+				F3309E9723FE5FB800E7C693 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3309E9B23FE5FB800E7C693 /* PBXTargetDependency */,
+			);
+			name = WMZFormUITests;
+			productName = WMZFormUITests;
+			productReference = F3309E9923FE5FB800E7C693 /* WMZFormUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3309E6B23FE5FB400E7C693 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = wmz;
+				TargetAttributes = {
+					F3309E7223FE5FB400E7C693 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					F3309E8D23FE5FB800E7C693 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = F3309E7223FE5FB400E7C693;
+					};
+					F3309E9823FE5FB800E7C693 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = F3309E7223FE5FB400E7C693;
+					};
+				};
+			};
+			buildConfigurationList = F3309E6E23FE5FB400E7C693 /* Build configuration list for PBXProject "WMZForm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F3309E6A23FE5FB400E7C693;
+			productRefGroup = F3309E7423FE5FB400E7C693 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3309E7223FE5FB400E7C693 /* WMZForm */,
+				F3309E8D23FE5FB800E7C693 /* WMZFormTests */,
+				F3309E9823FE5FB800E7C693 /* WMZFormUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3309E7123FE5FB400E7C693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3F3D90A246C45C600FD0E07 /* WMZForm.bundle in Resources */,
+				F3309E8623FE5FB800E7C693 /* LaunchScreen.storyboard in Resources */,
+				F3309E8323FE5FB800E7C693 /* Assets.xcassets in Resources */,
+				F3309E8123FE5FB400E7C693 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3309E8C23FE5FB800E7C693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3309E9723FE5FB800E7C693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8005411EB1A93108599A0546 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WMZForm/Pods-WMZForm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WMZForm/Pods-WMZForm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WMZForm/Pods-WMZForm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FB482E1EE938BD2F9BBA467 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WMZFormUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95AEEEC1B75310A1B2192CF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WMZFormTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC83FF3C523723A8C97F2858 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WMZForm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3309E6F23FE5FB400E7C693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F33740482467E25C00296C5B /* FormPermission.m in Sources */,
+				F3E7FA77244C322A0019F0D8 /* WMZFormBase.m in Sources */,
+				F341F8A22469936F00575DBA /* TencenTabbar.m in Sources */,
+				F337403E2467E1C900296C5B /* PhotoBrowser.m in Sources */,
+				F33740402467E1C900296C5B /* BrowserImageView.m in Sources */,
+				F33740422467E1C900296C5B /* WMZFormBtn.m in Sources */,
+				F32BEAA8246FDB9D00151655 /* ToutiaoHome.m in Sources */,
+				F341F8AC2469A21600575DBA /* TencenFriendCommentCell.m in Sources */,
+				F366D836246B0373009C02C0 /* BaseVC.m in Sources */,
+				F30B5A662469385F0068D077 /* WMZFormInputCell.m in Sources */,
+				F30B5A622469385F0068D077 /* WMZFormNormalCell.m in Sources */,
+				F32BEAB22470186500151655 /* WMZFormDefaultCell.m in Sources */,
+				F337403F2467E1C900296C5B /* WaitingView.m in Sources */,
+				F3F3D908246C45A400FD0E07 /* UIImage+imageNameWithBundle.m in Sources */,
+				F3309E7E23FE5FB400E7C693 /* ViewController.m in Sources */,
+				F3531BCF246BDF2B00C0DDC0 /* FormPushListVC.m in Sources */,
+				F3F3D902246C2DB300FD0E07 /* WMZFormTakePictureCell.m in Sources */,
+				F341F8A82469940D00575DBA /* TencenSetingVC.m in Sources */,
+				F3309E7823FE5FB400E7C693 /* AppDelegate.m in Sources */,
+				F32BEAAB246FDBAC00151655 /* ToutTiaoSetting.m in Sources */,
+				F366D833246B0258009C02C0 /* SelectVC.m in Sources */,
+				F3531BCB246BD2DE00C0DDC0 /* WMZFormCommitCell.m in Sources */,
+				F3E7FA7D244C322A0019F0D8 /* WMZFormRowModel.m in Sources */,
+				F30B5A602469385F0068D077 /* WMZFormBaseCell.m in Sources */,
+				F33740492467E25C00296C5B /* WMZFormPhotoFunction.m in Sources */,
+				F33740412467E1C900296C5B /* WMZFormTool.m in Sources */,
+				F304CDB7245C5EF60045261D /* WMZFormEmptyView.m in Sources */,
+				F30B5A612469385F0068D077 /* WMZFormTextCell.m in Sources */,
+				F30B5A632469385F0068D077 /* WMZFormIconCell.m in Sources */,
+				F32BEAA5246FDB8600151655 /* TouTiaoTabbar.m in Sources */,
+				F3309E8923FE5FB800E7C693 /* main.m in Sources */,
+				F30B5A71246939540068D077 /* AllPropertiesVC.m in Sources */,
+				F366D839246B0B74009C02C0 /* WMZFormEditCell.m in Sources */,
+				F30B5A652469385F0068D077 /* WMZFormImageCell.m in Sources */,
+				F30B5A642469385F0068D077 /* WMZFormTagCell.m in Sources */,
+				F341F8A5246993FE00575DBA /* TencenFriendGroupVC.m in Sources */,
+				F30B5A672469385F0068D077 /* WMZFormSwitchCell.m in Sources */,
+				F30B5A682469385F0068D077 /* WMZFormCheckCell.m in Sources */,
+				F30B5A6A2469385F0068D077 /* WMZFormTextViewCell.m in Sources */,
+				F3531BC7246BCAF500C0DDC0 /* YYWeakProxy.m in Sources */,
+				F32BEAAF24700C7F00151655 /* TouTiaoCommentCell.m in Sources */,
+				F3E7FA7C244C322A0019F0D8 /* WMZFormSectionModel.m in Sources */,
+				F30B5A692469385F0068D077 /* WMZFormVerificationCell.m in Sources */,
+				F3E7FA78244C322A0019F0D8 /* WMZForm.m in Sources */,
+				F3531BC8246BCAF500C0DDC0 /* YYFPSLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3309E8A23FE5FB800E7C693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3309E9323FE5FB800E7C693 /* WMZFormTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3309E9523FE5FB800E7C693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3309E9E23FE5FB800E7C693 /* WMZFormUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3309E9023FE5FB800E7C693 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3309E7223FE5FB400E7C693 /* WMZForm */;
+			targetProxy = F3309E8F23FE5FB800E7C693 /* PBXContainerItemProxy */;
+		};
+		F3309E9B23FE5FB800E7C693 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3309E7223FE5FB400E7C693 /* WMZForm */;
+			targetProxy = F3309E9A23FE5FB800E7C693 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F3309E7F23FE5FB400E7C693 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3309E8023FE5FB400E7C693 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F3309E8423FE5FB800E7C693 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3309E8523FE5FB800E7C693 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F3309EA023FE5FB800E7C693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F3309EA123FE5FB800E7C693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F3309EA323FE5FB800E7C693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 805E2BF9936F73200E66DF34 /* Pods-WMZForm.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR6T4LQD9T;
+				INFOPLIST_FILE = WMZForm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WMZForm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3309EA423FE5FB800E7C693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC96E3B25D63B5B48B0F590 /* Pods-WMZForm.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR6T4LQD9T;
+				INFOPLIST_FILE = WMZForm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WMZForm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F3309EA623FE5FB800E7C693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75C090E6130F8EA49A775B18 /* Pods-WMZFormTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR6T4LQD9T;
+				INFOPLIST_FILE = WMZFormTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WMZFormTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WMZForm.app/WMZForm";
+			};
+			name = Debug;
+		};
+		F3309EA723FE5FB800E7C693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B72A2AC7049C1F4DA263DAD /* Pods-WMZFormTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR6T4LQD9T;
+				INFOPLIST_FILE = WMZFormTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WMZFormTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WMZForm.app/WMZForm";
+			};
+			name = Release;
+		};
+		F3309EA923FE5FB800E7C693 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95CE872B017F87688795895 /* Pods-WMZFormUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR6T4LQD9T;
+				INFOPLIST_FILE = WMZFormUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WMZFormUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WMZForm;
+			};
+			name = Debug;
+		};
+		F3309EAA23FE5FB800E7C693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 490B917CC63BCE10285872A3 /* Pods-WMZFormUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR6T4LQD9T;
+				INFOPLIST_FILE = WMZFormUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.WMZFormUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WMZForm;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3309E6E23FE5FB400E7C693 /* Build configuration list for PBXProject "WMZForm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3309EA023FE5FB800E7C693 /* Debug */,
+				F3309EA123FE5FB800E7C693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3309EA223FE5FB800E7C693 /* Build configuration list for PBXNativeTarget "WMZForm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3309EA323FE5FB800E7C693 /* Debug */,
+				F3309EA423FE5FB800E7C693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3309EA523FE5FB800E7C693 /* Build configuration list for PBXNativeTarget "WMZFormTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3309EA623FE5FB800E7C693 /* Debug */,
+				F3309EA723FE5FB800E7C693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3309EA823FE5FB800E7C693 /* Build configuration list for PBXNativeTarget "WMZFormUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3309EA923FE5FB800E7C693 /* Debug */,
+				F3309EAA23FE5FB800E7C693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3309E6B23FE5FB400E7C693 /* Project object */;
+}
