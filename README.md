@@ -8,7 +8,7 @@
 | 所有属性的页面-比较多比较杂乱              | ![所有属性.gif](https://upload-images.jianshu.io/upload_images/9163368-535ae0912b320ca6.gif?imageMogr2/auto-orient/strip)|
 
 ##  简单一句话概括这个控件 - 表单~不止于表单
-###特效
+### 特效
 - 支持可自定义cell,cell需要继承于baseCell
 - 支持实现目前大多数表单的功能
 - 支持自定义选择弹窗的内容
@@ -17,7 +17,7 @@
 - 可自定义cell上的ui控件
 - 可自定义无数据占位图
 
-###目前自带的样式介绍
+### 目前自带的样式介绍
 
  -   FormCellDefault       ~ 默认样式
    - FormCellNormal       ~ 左右文本
@@ -37,7 +37,7 @@
 
 
 ## 用法介绍
-###初始化添加数据 - 属性有点多这里没法一次性说清 详情可以看demo 或者来问我
+### 初始化添加数据 - 属性有点多这里没法一次性说清 详情可以看demo 或者来问我
 ```
     //初始化
      WMZForm *form =
