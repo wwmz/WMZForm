@@ -2,12 +2,9 @@
 先看看效果吧
 | 实现页面                | 图片                       |
 |-----------------------|-----------------------------------------------------|
-| 单纯表单页面(可各种配置调样式)               | ![单纯表单.gif](https://upload-images.jianshu.io/upload_images/9163368-7ec31dc28be50359.gif?imageMogr2/auto-orient/strip)
-|
-| 实现的一个简单朋友圈              | ![朋友圈.gif](https://upload-images.jianshu.io/upload_images/9163368-a9f7b2803a7ea8cd.gif?imageMogr2/auto-orient/strip)
-|
-| 简单实现一些设置的界面              | ![设置.gif](https://upload-images.jianshu.io/upload_images/9163368-ac0e739822a16515.gif?imageMogr2/auto-orient/strip)
-|
+| 单纯表单页面(可各种配置调样式)               | ![单纯表单.gif](https://upload-images.jianshu.io/upload_images/9163368-7ec31dc28be50359.gif?imageMogr2/auto-orient/strip)|
+| 实现的一个简单朋友圈              | ![朋友圈.gif](https://upload-images.jianshu.io/upload_images/9163368-a9f7b2803a7ea8cd.gif?imageMogr2/auto-orient/strip)|
+| 简单实现一些设置的界面              | ![设置.gif](https://upload-images.jianshu.io/upload_images/9163368-ac0e739822a16515.gif?imageMogr2/auto-orient/strip)|
 | 所有属性的页面-比较多比较杂乱              | ![所有属性.gif](https://upload-images.jianshu.io/upload_images/9163368-535ae0912b320ca6.gif?imageMogr2/auto-orient/strip)|
 
 ##  简单一句话概括这个控件 - 表单~不止于表单
