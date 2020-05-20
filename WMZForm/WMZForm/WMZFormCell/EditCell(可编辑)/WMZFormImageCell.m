@@ -17,6 +17,7 @@
     self.nameLa = [UILabel new];
     [self.contentView addSubview:self.nameLa];
     
+    [self.imageContainerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.contentView addSubview:self.imageContainerView];
     [self.imageArr removeAllObjects];
     for (int i = 0; i<FormMaxCount; i++) {
@@ -26,7 +27,7 @@
         tempImageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTheImageView:)];
         [tempImageView addGestureRecognizer:tap];
-               [self.imageContainerView addSubview:tempImageView];
+        [self.imageContainerView addSubview:tempImageView];
         
         WMZFormBtn *deleIamge = [WMZFormBtn buttonWithType:UIButtonTypeCustom];
         [deleIamge setTag:100];
@@ -132,6 +133,7 @@
             }
         }];
     }else{
+        [self layoutIfNeeded];
         PhotoBrowser *photoBrowser = [PhotoBrowser new];
         photoBrowser.delegate = self;
         photoBrowser.insert = self.model.formRowData[@"insert"]?YES:NO;

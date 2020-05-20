@@ -40,6 +40,7 @@
     .wTypeSet(DialogTypeSheet)
     .wShowAnimationSet(AninatonShowTop)
     .wHideAnimationSet(AninatonHideTop)
+    .wAnimationDurtionSet(0.3)
     .wDataSet(@[@"拍照",@"我的相册"])
     .wEventFinishSet(^(id anyID,NSIndexPath *path, DialogType type) {
         FormStrongSelf(weakObject)

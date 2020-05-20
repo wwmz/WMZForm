@@ -25,8 +25,8 @@
             filePath = "WMZForm/WMZForm/WMZFormCell/EditCell(&#x53ef;&#x7f16;&#x8f91;)/WMZFormImageCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-updateImageWithModel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -109,6 +109,86 @@
             endingLineNumber = "527"
             landmarkName = "-findRowModelWithKey:withIndexPath:withType:actionType:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26A4C4CA-CC7F-4627-8D5D-634E62AAF10D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WMZForm/WMZForm/WMZFormTool/Browser/PhotoBrowser.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-photoClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "153B970C-A319-4A24-8AF3-D31726EAA729"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WMZForm/WMZForm/WMZFormTool/Browser/PhotoBrowser.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-photoClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B34233E5-1229-453F-944A-C835351325FD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WMZForm/WMZForm/WMZFormTool/Browser/PhotoBrowser.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "-showFirstImage"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B34233E5-1229-453F-944A-C835351325FD - cf3589239420279e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PhotoBrowser showFirstImage]"
+                  moduleName = "WMZForm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wmz/Desktop/wmz/demo/WMZForm/WMZForm/WMZForm/WMZFormTool/Browser/PhotoBrowser.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "310"
+                  endingLineNumber = "310"
+                  offsetFromSymbolStart = "1731">
+               </Location>
+               <Location
+                  uuid = "B34233E5-1229-453F-944A-C835351325FD - f3b1cc2e2bd3ef67"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__30-[PhotoBrowser showFirstImage]_block_invoke"
+                  moduleName = "WMZForm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wmz/Desktop/wmz/demo/WMZForm/WMZForm/WMZForm/WMZFormTool/Browser/PhotoBrowser.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "310"
+                  endingLineNumber = "310"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

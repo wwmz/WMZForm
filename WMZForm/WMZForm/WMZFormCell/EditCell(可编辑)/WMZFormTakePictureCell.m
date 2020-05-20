@@ -21,13 +21,20 @@
           make.top.mas_equalTo(FormYOffset);
     }];
     
-    [self.contentView addSubview:self.iconImageView];
-    [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imageContainerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.contentView addSubview:self.imageContainerView];
+    [self.imageContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(FormXOffset*2);
         make.right.mas_equalTo(-FormXOffset*2);
         make.top.equalTo(self.nameLa.mas_bottom).offset(5);
         make.height.mas_equalTo(FormDefaulICCardHeight).priorityHigh();
         make.bottom.mas_equalTo(-FormYOffset);
+    }];
+    
+    
+    [self.imageContainerView addSubview:self.iconImageView];
+    [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
     }];
     
     self.iconImageView.userInteractionEnabled = YES;
@@ -96,7 +103,7 @@
         photoBrowser.delegate = self;
         photoBrowser.currentImageIndex = 0;
         photoBrowser.imageCount =  1;
-        photoBrowser.sourceImagesContainerView = self.contentView;
+        photoBrowser.sourceImagesContainerView = self.imageContainerView;
         [photoBrowser show];
     }
 }
@@ -117,5 +124,11 @@
         _iconImageView = [UIImageView new];
     }
     return _iconImageView;
+}
+- (UIView *)imageContainerView{
+    if (!_imageContainerView) {
+        _imageContainerView = [UIView new];
+    }
+    return _imageContainerView;
 }
 @end

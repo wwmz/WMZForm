@@ -33,7 +33,6 @@
         self.tableView.dataSource = self;
         
         self.emptyView = [[WMZFormEmptyView alloc]initWithFrame:self.bounds data:@{@"name":@"暂无数据",@"image":@"formIcon"}];
-        self.emptyView.tag = 10086;
         [self addSubview:self.emptyView];
     }
     return self;
@@ -121,7 +120,6 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     WMZFormRowModel *model =  [self getIndexData:indexPath];
-    model.formSliderDelete = YES;
     return model.formSliderDelete;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -437,9 +435,6 @@
               withIndexPath:(NSIndexPath*)indexPath
                    withType:(FormFindRowType)typp
                  actionType:(FormRowActionType)action{
-       
-     NSArray *arr = self.arrayModel.dataArray;
-//      NSLog(@"%@",arr);
     __block NSMutableDictionary *mdic  = [NSMutableDictionary new];
     [mdic setObject:@(NO) forKey:@"result"];
     if (typp == FormFindRowTypeKey) {

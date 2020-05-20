@@ -10,6 +10,7 @@
 #import "BrowserImageView.h"
 #import "PhotoBrowserConfig.h"
 #import "FormPermission.h"
+#import "WMZDialog.h"
 @implementation PhotoBrowser
 {
     UIAlertController *alert;
@@ -65,17 +66,19 @@
 
 - (void)pushSave:(UILongPressGestureRecognizer*)tap{
     if (tap.state == UIGestureRecognizerStateBegan) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        __weak PhotoBrowser *photoBrowser = self;
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [photoBrowser saveImage];
-        }];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:action];
-        [alert addAction:cancel];
+        FormWeakSelf(self)
+        Dialog()
+        .wTypeSet(DialogTypeSheet)
+        .wShowAnimationSet(AninatonShowTop)
+        .wHideAnimationSet(AninatonHideTop)
+        .wAnimationDurtionSet(0.3)
+        .wDataSet(@[@"保存图片"])
+        .wEventFinishSet(^(id anyID,NSIndexPath *path, DialogType type) {
+            FormStrongSelf(weakObject)
+            [strongObject saveImage];
+        })
+        .wStart();
         
-        
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:NO completion:nil];
     }
 }
 
@@ -284,25 +287,30 @@
 - (void)showFirstImage
 {
     UIView *sourceView = nil;
-    
+    NSInteger index = self.currentImageIndex;
     if ([self.sourceImagesContainerView isKindOfClass:UICollectionView.class]) {
         UICollectionView *view = (UICollectionView *)self.sourceImagesContainerView;
-        NSIndexPath *path = [NSIndexPath indexPathForItem:self.currentImageIndex inSection:0];
+        NSIndexPath *path = [NSIndexPath indexPathForItem:index inSection:0];
         sourceView = [view cellForItemAtIndexPath:path];
     }else {
-        sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
+        sourceView = self.sourceImagesContainerView.subviews[index];
     }
     CGRect rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
-    
+
     UIImageView *tempView = [[UIImageView alloc] init];
-    tempView.image = [self placeholderImageForIndex:self.currentImageIndex];
-    
+    tempView.image = [self placeholderImageForIndex:index];
+
     [self addSubview:tempView];
-    
-    CGRect targetTemp = [_scrollView.subviews[self.currentImageIndex] bounds];
-    
+    if (self.insert) {
+        index+=1;
+        if (index>_scrollView.subviews.count-1) {
+            index = _scrollView.subviews.count-1;
+        }
+    }
+    CGRect targetTemp = [_scrollView.subviews[index] bounds];
+
     tempView.frame = rect;
-    tempView.contentMode = [_scrollView.subviews[self.currentImageIndex] contentMode];
+    tempView.contentMode = [_scrollView.subviews[index] contentMode];
     _scrollView.hidden = YES;
     
     

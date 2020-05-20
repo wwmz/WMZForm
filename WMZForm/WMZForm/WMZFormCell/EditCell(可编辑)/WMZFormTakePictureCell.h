@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WMZFormTakePictureCell : WMZFormBaseCell
 @property(nonatomic,strong)UIImageView *iconImageView;
+@property (nonatomic, strong) UIView *imageContainerView;
 @end
 
 NS_ASSUME_NONNULL_END
