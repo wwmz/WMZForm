@@ -35,7 +35,7 @@
     [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.nameLa.mas_top);
         make.right.equalTo(self.detailLa.mas_left).priorityHigh();
-        make.width.mas_equalTo(self).multipliedBy(0.75);
+        make.width.mas_equalTo(self).multipliedBy(0.7);
     }];
     
     self.warningLabel = [UILabel new];

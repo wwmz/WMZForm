@@ -42,6 +42,7 @@
     
     WMZFormRowModel *sonModel = FormRowModel()
     .wFormName(@"选择图片")
+    .wFormKey(@"upload")
     .wFormRowData(@{@"insert":@(YES),@"delete":@(YES)})
     .wFormValue(@[
         @"formIcon",
@@ -50,11 +51,8 @@
         @"http://b-ssl.duitang.com/uploads/item/201509/25/20150925081558_N3ZhH.jpeg",
     ]);
     WMZFormSectionModel *sectionModel = FormSectionModel()
-    .wFormSectionKey(@"upload")
     .wFormCellName(@(FormCellImage))
     .wFormSectionData(@[sonModel]);
-
-    
     FormWeakSelf(self)
     self.form =
     Form(CGRectMake(0, NavigationBar_Form_Height, self.view.bounds.size.width , self.view.bounds.size.height - NavigationBar_Form_Height))

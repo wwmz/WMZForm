@@ -64,7 +64,7 @@ static FormPermission *_instance;
     FormWeakSelf(self)
     if (photoStatus == PHAuthorizationStatusNotDetermined) {
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-            FormStrongSelf(self)
+            FormStrongSelf(weakObject)
             if (status == PHAuthorizationStatusAuthorized) {
                 if (strongObject.block) {
                     strongObject.block(YES, @(photoStatus));
@@ -97,7 +97,7 @@ static FormPermission *_instance;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if(authStatus == AVAuthorizationStatusNotDetermined){
         [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-            FormStrongSelf(self)
+            FormStrongSelf(weakObject)
             if (strongObject.block) {
                 strongObject.block(granted, @(authStatus));
             }

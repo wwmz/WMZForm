@@ -31,7 +31,6 @@ isPhoneX;\
 
 //底部标签栏高度
 #define FormTabBarHeight (FormIsIphoneX ? (49.f+34.f) : 49.f)
-
 #define FormWeakSelf(obj) __weak typeof(obj) weakObject = obj;
 #define FormStrongSelf(obj) __strong typeof(obj) strongObject = weakObject;
 
@@ -40,21 +39,22 @@ isPhoneX;\
 
 #define FormDefaultImageSize CGSizeMake(Form_GetWNum(80),Form_GetWNum(80))
 
-#define FormDefaultNameColor  FormColor(0X333333)
-#define FormDefaultDetailColor  FormColor(0X333333)
-#define FormDefaultLineColor  FormColor(0xeeeeee)
+#define FormDefaultNameColor  FormColor(0X111A34)
+#define FormDefaultDetailColor  FormColor(0X989CA8)
+#define FormDefaultLineColor  FormColor(0xE8E8E8)
 #define FormDefaultNameFont  15.0f
 #define FormDefaultDetailFont  14.0f
 
 #define FormDefaultWarnColor  [UIColor redColor]
 #define FormDefaultWarnFont  13.0f
 
-#define FormDefaulTextViewMaxHeight   Form_GetWNum(480)
-#define FormDefaulTextViewMinHeight   Form_GetWNum(200)
+#define FormDefaulTextViewMaxHeight   Form_GetWNum(200)
+#define FormDefaulTextViewMinHeight   Form_GetWNum(150)
 #define FormDefaulTextViewMaxWidth    Form_GetWNum(200)
 
 #define FormTextMinWidth 0.01
 
+#define FormDefaultBtnBgColor FormColor(0x024596)
 #define FormDefaultBtnColor  FormColor(0Xffffff)
 #define FormDefaultBtnSize  CGSizeMake(Form_GetWNum(160),Form_GetWNum(60))
 #define FormDefaultBtnFont 13.0f
@@ -80,7 +80,10 @@ isPhoneX;\
 
 #define FormAllTextColor FormColor(0x5bc3e6)
 
-static NSString * _Nullable const FormDefaultPlaceholder =  @"请填写";
+#define FormBgColor FormColor(0xF9F9F9)
+#define FormHeadViewBgColor FormColor(0xF9F9F9)
+#define FormFootViewBgColor FormColor(0xF9F9F9)
+static NSString * _Nullable const FormDefaultPlaceholder =  @"请输入";
 static NSString * _Nullable const FormCheckDefaultSelectIcon  = @"form_check";
 static NSString * _Nullable const FormCheckDefaultIcon = @"form_notCheck";
 
@@ -116,6 +119,8 @@ typedef enum :NSInteger{
    FormClickCommit = 1,   //提交表单
    FormClickClick,        //点击操作
    FormVerficationClick,  //验证码点击
+   FormEditTextField ,    //修改输入框内容
+   FormEditImage,         //修改图片
 }FormClickType;
 
 
@@ -160,4 +165,6 @@ typedef void (^FormValueChangeBlock)     (WMZFormRowModel * _Nullable model);
 typedef void (^FormSectionBlock) (WMZFormSectionModel *_Nullable sectionModel);
 typedef void (^FormRowBlock) (WMZFormRowModel *_Nullable rowModel);
 typedef void (^FormCustomReload) (WMZFormTableView *_Nullable tableView);
+
+typedef void(^FormConstraint) (MASConstraintMaker *make);
 #endif /* WMZFormMacro_h */

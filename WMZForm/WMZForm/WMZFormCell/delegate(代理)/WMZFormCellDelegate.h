@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol WMZFormCellDelegate <NSObject>
 @optional
 //点击cell上的控件触发操作
-- (void)didSelectCell:(WMZFormBaseCell*)cell target:(UIView*)view action:(id)action;
+- (void)didSelectCell:(WMZFormBaseCell*)cell target:(id)view action:(id)action;
 @end
 
 NS_ASSUME_NONNULL_END

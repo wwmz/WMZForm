@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 //最大size
 @property(nonatomic,assign)CGSize maxSize;
 @property(nonatomic,strong)WMZFormTreeModel *model;
+@property(nonatomic,copy)NSString *infoKey;
 - (void)TagSetImagePosition:(FormBtnPosition)postion spacing:(CGFloat)spacing;
 @end
 

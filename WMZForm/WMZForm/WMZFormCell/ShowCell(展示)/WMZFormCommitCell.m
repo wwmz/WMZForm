@@ -34,7 +34,7 @@
     if (model.formCustomButton) {
         model.formCustomButton(self.commit);
     }else{
-        self.commit.backgroundColor = [UIColor orangeColor];
+        self.commit.backgroundColor = FormDefaultBtnBgColor;
         [self.commit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.commit.layer.masksToBounds = NO;
         self.commit.layer.borderWidth = 0;

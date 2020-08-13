@@ -33,13 +33,14 @@
     [self.detailLa mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.nameLa.mas_bottom).offset(7);
         make.left.mas_equalTo(FormXOffset/2);
+        make.width.lessThanOrEqualTo(self).multipliedBy(0.2);
     }];
     
     self.writeView.delegate = self;
     [self.contentView addSubview:self.writeView];
     [self.writeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.detailLa.mas_right);
-        make.right.mas_equalTo(-FormXOffset).priorityHigh();
+        make.width.lessThanOrEqualTo(self).multipliedBy(0.8);
         make.top.equalTo(self.nameLa.mas_bottom);
         make.bottom.equalTo(self.warningLabel.mas_top);
         make.height.mas_lessThanOrEqualTo(FormDefaulTextViewMaxHeight).priorityHigh();
@@ -73,6 +74,8 @@
     self.titleLa.text = model.formRowData[@"placeholder"]?:@"";
     self.detailLa.text = [NSString stringWithFormat:@" %@",model.formDetail?:@""];
     model.changeHeight = YES;
+    [self.writeView layoutIfNeeded];
+//    self.writeView.scrollEnabled = YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -102,16 +105,21 @@
 }
 - (void)textViewDidChange:(UITextView *)textView{
     [self tableViewUpdate];
-    if (self.writeView.frame.size.height>=FormDefaulTextViewMaxHeight&&self.writeView.scrollEnabled ==NO) {
-        self.writeView.scrollEnabled = YES;
-    }
+//    if (self.writeView.frame.size.height>=FormDefaulTextViewMaxHeight&&self.writeView.scrollEnabled ==NO) {
+//        self.writeView.scrollEnabled = YES;
+//    }
     self.model.formValue = textView.text;
     self.titleLa.hidden = [textView.text length];
+}
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if (self.formDelagate&&[self.formDelagate respondsToSelector:@selector(didSelectCell:target:action:)]) {
+        [self.formDelagate didSelectCell:self target:textView action:@"editTextFieldAction"];
+    }
 }
 - (UITextView *)writeView{
     if (!_writeView) {
         _writeView = [UITextView new];
-        _writeView.scrollEnabled = NO;
+        _writeView.scrollEnabled = YES;
     }
     return _writeView;
 }

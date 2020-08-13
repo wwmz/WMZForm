@@ -69,6 +69,7 @@
         FormWeakSelf(self)
         Dialog()
         .wTypeSet(DialogTypeSheet)
+        .wTagSet(10086)
         .wShowAnimationSet(AninatonShowTop)
         .wHideAnimationSet(AninatonHideTop)
         .wAnimationDurtionSet(0.3)

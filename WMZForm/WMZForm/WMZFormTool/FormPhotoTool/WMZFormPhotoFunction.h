@@ -33,6 +33,10 @@ typedef void (^ImageBlock) (NSDictionary *info);
  */
 - (void)getLocationImageWithSize:(formImageSize)size WithBlock:(ImageBlock)block;
 
+/*
+*压缩图片
+*/
++ (UIImage *)compressPictureWith:(UIImage *)originnalImage withSize:(formImageSize)size;
 @end
 
 NS_ASSUME_NONNULL_END

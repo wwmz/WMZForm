@@ -54,6 +54,9 @@
 }
 - (void)switchAction:(UISwitch*)mySwitch{
     self.model.formValue = @(mySwitch.isOn);
+      if (self.formDelagate&&[self.formDelagate respondsToSelector:@selector(didSelectCell:target:action:)]) {
+          [self.formDelagate didSelectCell:self target:mySwitch action:@"switch"];
+    }
 }
 - (UISwitch *)mySwitch{
     if (!_mySwitch) {

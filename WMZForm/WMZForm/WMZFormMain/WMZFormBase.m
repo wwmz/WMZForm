@@ -92,14 +92,16 @@
     if (!_tableView) {
         _tableView = [[WMZFormTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.rowHeight = UITableViewAutomaticDimension;
+        _tableView.estimatedRowHeight = 100;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        _tableView.rowHeight = 44;
         if (@available(iOS 11.0, *)) {
-            _tableView.estimatedRowHeight = 100;
             _tableView.estimatedSectionFooterHeight = 0.01;
             _tableView.estimatedSectionHeaderHeight = 0.01;
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
+        _tableView.backgroundColor = FormBgColor;
         [_tableView registerClass:[WMZFormHeadView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([WMZFormHeadView class])];
         [_tableView registerClass:[WMZFormFootView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([WMZFormFootView class])];
     }
@@ -152,6 +154,7 @@
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         [self.contentView addSubview:self.textLa];
+        [self.contentView addSubview:self.detailLa];
         [self.contentView addSubview:self.accessBtn];
     }
     return self;
@@ -159,7 +162,9 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat btnWidth = self.frame.size.height>20?20:0;
-    self.textLa.frame = CGRectMake(FormXOffset, 0, self.frame.size.width-FormXOffset*3-btnWidth, self.frame.size.height);
+    CGFloat width = (self.frame.size.width-FormXOffset*3-btnWidth)/2;
+    self.textLa.frame = CGRectMake(FormXOffset, 0, width, self.frame.size.height);
+    self.detailLa.frame = CGRectMake(width, 0, width, self.frame.size.height);
     self.accessBtn.frame = CGRectMake(self.frame.size.width-FormXOffset-btnWidth, (self.frame.size.height-btnWidth)/2, btnWidth, btnWidth);
 }
 - (UILabel *)textLa{
@@ -167,10 +172,21 @@
         _textLa = [UILabel new];
         _textLa.font = [UIFont systemFontOfSize:15.0f];
         _textLa.numberOfLines = 0;
-        _textLa.textColor = FormColor(0x666666);
+        _textLa.textColor = FormColor(0x333333);
     }
     return _textLa;
 }
+- (UILabel *)detailLa{
+    if (!_detailLa) {
+        _detailLa = [UILabel new];
+        _detailLa.font = [UIFont systemFontOfSize:15.0f];
+        _detailLa.numberOfLines = 0;
+        _detailLa.textAlignment = NSTextAlignmentRight;
+        _detailLa.textColor = FormColor(0x333333);
+    }
+    return _detailLa;
+}
+
 - (UIButton *)accessBtn{
     if (!_accessBtn) {
         _accessBtn = [UIButton buttonWithType:UIButtonTypeCustom];

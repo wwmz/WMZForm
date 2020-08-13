@@ -18,8 +18,8 @@
 //可继承去重写
 - (void)setModel:(WMZFormRowModel *)model{
     _model = model;
-    self.accessoryType = model.formAccessoryType == -1 ? UITableViewCellAccessoryNone:model.formAccessoryType;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.accessoryType = (model.formAccessoryType == -1) ? UITableViewCellAccessoryNone:model.formAccessoryType;
+    self.selectionStyle = (model.formSelectionStyle == -1) ? UITableViewCellSelectionStyleNone:model.formSelectionStyle;
     if (self.nameLa) {
         if (model.formCustomNameLabel) {
             model.formCustomNameLabel(self.nameLa);
@@ -130,6 +130,7 @@
         }
         self.textField.delegate = self;
         self.textField.text = (model.formValue&&[model.formValue isKindOfClass:[NSString class]])?model.formValue:@"";
+        [self.textField addTarget:self action:@selector(textFieldEditChanged:)  forControlEvents:UIControlEventEditingChanged];
     }
     self.lineView.hidden = !model.formShowLine;
     self.backgroundColor = model.formCellBackGround?:[UIColor whiteColor];
@@ -152,7 +153,6 @@
         mainText = [NSString stringWithFormat:@"%@%@",textField.text,string];
     }
     NSString *tip = @"";
-
     if (self.model.formOpenRule&&
         !self.model.isSelected&&
         [self.model.formCellName isKindOfClass:[NSNumber class]]&&
@@ -168,8 +168,9 @@
             id regular = self.model.formRowData[@"regular"];
             if (maxNum) {
                 if (mainText.length>[maxNum intValue]) {
-                    tip = [NSString stringWithFormat:@"最长%d个字符",[maxNum intValue]];
+                    tip = ruleTip?:[NSString stringWithFormat:@"最长%d个字符",[maxNum intValue]];
                     [self updateWarningLabelWithText:tip];
+                    return NO;
                 }
             }
             if ([regular isKindOfClass:[NSNumber class]]) {
@@ -185,12 +186,25 @@
             }
         }
     }
-    self.model.formValue = mainText?:@"";
     [self updateWarningLabelWithText:tip];
     return YES;
 }
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.model.formValue = textView.text;
+}
+
+
+- (void)textFieldEditChanged:(UITextField*)textField
+{
+   self.model.formValue = textField.text;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.model.formValue = textField.text;
+    if (self.formDelagate&&[self.formDelagate respondsToSelector:@selector(didSelectCell:target:action:)]) {
+        [self.formDelagate didSelectCell:self target:textField action:@"editTextFieldAction"];
+    }
     if (!textField.text.length) {
         [self updateWarningLabelWithText:self.model.formWarn?:[NSString stringWithFormat:@"%@不能为空",self.model.formName?:@""]];
     }
@@ -204,21 +218,50 @@
     [self tableViewUpdate];
 }
 
-- (void)setShowImage:(UIImageView *)imageView withData:(id)image key:(NSString*)key{
+- (void)setShowImage:(UIImageView *)imageView withData:(id)image key:(NSString*)key placeholderImage:(nonnull UIImage*)placeholderImage{
     if (!image) return;
     if ([image isKindOfClass:[NSString class]]&&[image length]) {
         if ([image hasPrefix:@"http"]) {
-            [imageView sd_setImageWithURL:[NSURL URLWithString:image]];
+            if (placeholderImage) {
+                [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:placeholderImage];
+            }else{
+                [imageView sd_setImageWithURL:[NSURL URLWithString:image]];
+            }
         }else{
             imageView.image = [UIImage formBundleImage:image];
         }
     }else if ([image isKindOfClass:[UIImage class]]){
         imageView.image = image;
     }else if ([image isKindOfClass:[NSDictionary class]]){
-        imageView.image = [UIImage formBundleImage:image[@"image"]?:@" "];
+        if ([key isEqualToString:@""]||!key) {
+            key = @"image";
+        }
+        imageView.image = [UIImage formBundleImage:image[key]?:@" "];
     }
     
 }
+- (void)setShowImage:(UIImageView *)imageView withData:(id)image key:(NSString*)key;{
+    [self setShowImage:imageView withData:image key:key placeholderImage:[UIImage imageNamed:@" "]];
+    
+}
+
+//富文本
+- (void)attributedTextWithInfo:(NSDictionary*)info label:(UILabel*)la text:(NSString*)text{
+    UIColor *normalColor = info[@"normalColor"]?:la.textColor;
+    UIColor *changeColor = info[@"changeColor"]?:la.textColor;
+    UIFont *normalFont = info[@"normalFont"]?:la.font;
+    UIFont *changeFont = info[@"changeFont"]?:la.font;
+    NSString *changeStr = info[@"changeStr"];
+    NSMutableAttributedString *mStr = [[NSMutableAttributedString alloc] initWithString:text];
+    [mStr addAttribute:NSFontAttributeName value:normalFont range:NSMakeRange(0, mStr.length)];
+    [mStr addAttribute:NSForegroundColorAttributeName value:normalColor range:NSMakeRange(0, mStr.length)];
+    if (changeStr) {
+        [mStr addAttribute:NSFontAttributeName value:changeFont range:[text  rangeOfString:changeStr]];
+        [mStr addAttribute:NSForegroundColorAttributeName value:changeColor range:[text  rangeOfString:changeStr]];
+    }
+    la.attributedText = mStr;
+}
+
 - (UIView *)lineView{
     if (!_lineView) {
         _lineView = [UIView new];
@@ -266,6 +309,22 @@
     }
     return (UITableView*)tableView;
 }
+
+- (void)setBgView:(UIView*)view cornerRadius:(CGFloat)cornerRadius shadowRadius:(CGFloat)shadowRadius{
+    if (!view) {
+        view = self.BgView;
+    }
+    [view layoutIfNeeded];
+    view.backgroundColor = FormColor(0xffffff);
+    view.layer.shadowColor = FormColor(0x999999).CGColor;
+    view.layer.shadowOpacity = 0.3;
+    view.layer.shadowOffset = CGSizeMake(0, 0);
+    view.layer.cornerRadius = cornerRadius;
+    view.layer.shadowRadius = shadowRadius;
+    view.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:cornerRadius cornerRadii:CGSizeMake(0, 0)].CGPath;
+
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

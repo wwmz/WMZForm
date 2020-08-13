@@ -19,14 +19,6 @@ WMZFormRowModel * FormRowModel(void){
         return self;
     };
 }
-
-- (WMZFormRowModel * _Nonnull (^)(BOOL))wFormSliderDelete{
-    return ^WMZFormRowModel*(BOOL formSliderDelete){
-        self.formSliderDelete = formSliderDelete;
-        return self;
-    };
-}
-
 - (WMZFormRowModel * _Nonnull (^)(NSString * _Nonnull))wFormKey{
     return ^WMZFormRowModel*(NSString* formKey){
         self.formKey = formKey;
@@ -93,6 +85,28 @@ WMZFormRowModel * FormRowModel(void){
         return self;
     };
 }
+
+- (WMZFormRowModel * _Nonnull (^)(UITableViewCellEditingStyle))wFormEditingStyle{
+    return ^WMZFormRowModel*(UITableViewCellEditingStyle formEditingStyle){
+        self.formEditingStyle = formEditingStyle;
+        return self;
+    };
+}
+
+- (WMZFormRowModel * _Nonnull (^)(UITableViewCellAccessoryType))wFormCellAccessoryType{
+    return ^WMZFormRowModel*(UITableViewCellAccessoryType formCellAccessoryType){
+        self.formAccessoryType = formCellAccessoryType;
+        return self;
+    };
+}
+
+- (WMZFormRowModel * _Nonnull (^)(UITableViewCellSelectionStyle))wFormSelectionStyle{
+    return ^WMZFormRowModel*(UITableViewCellSelectionStyle formSelectionStyle){
+          self.formSelectionStyle = formSelectionStyle;
+          return self;
+      };
+}
+
 - (WMZFormRowModel * _Nonnull (^)(NSString * _Nonnull))wFormWarn{
     return ^WMZFormRowModel*(NSString *formWarn){
         self.formWarn = formWarn;
@@ -117,12 +131,8 @@ WMZFormRowModel * FormRowModel(void){
         return self;
     };
 }
-- (WMZFormRowModel * _Nonnull (^)(UITableViewCellAccessoryType))wFormCellAccessoryType{
-    return ^WMZFormRowModel*(UITableViewCellAccessoryType formCellAccessoryType){
-        self.formAccessoryType = formCellAccessoryType;
-        return self;
-    };
-}
+
+
 - (WMZFormRowModel * _Nonnull (^)(FormCustomLabel _Nonnull))wFormCustomNameLabel{
     return ^WMZFormRowModel*(FormCustomLabel formCustomNameLabel){
         self.formCustomNameLabel = formCustomNameLabel;
@@ -221,8 +231,10 @@ WMZFormRowModel * FormRowModel(void){
         self.formKey = @"";
         self.formCellName = @(-1);
         self.formAccessoryType = -1;
+        self.formSelectionStyle = -1;
         self.formTime = 60;
         self.rect = CGRectNull;
+        self.formEditingStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

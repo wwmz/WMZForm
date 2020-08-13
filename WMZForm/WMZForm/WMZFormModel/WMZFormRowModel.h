@@ -78,12 +78,14 @@ Example-FormCellTag
 @property(nonatomic,strong,readonly) WMZFormRowModel *(^wFormCellName)     (id formCellName);
 //showLine default NO
 @property(nonatomic,assign,readonly) WMZFormRowModel *(^wFormShowLine)     (BOOL formShowLine);
-//sliderDelete
-@property(nonatomic,assign,readonly) WMZFormRowModel *(^wFormSliderDelete) (BOOL formSliderDelete);
+//editingStyle
+@property(nonatomic,assign,readonly) WMZFormRowModel *(^wFormEditingStyle) (UITableViewCellEditingStyle formEditingStyle);
 //cellHeight defalt UITableViewAutomaticDimension
 @property(nonatomic,assign,readonly) WMZFormRowModel *(^wFormCellHeight)   (CGFloat formCellHeight);
 //cellAccessoryType default  UITableViewCellAccessoryNone
 @property(nonatomic,assign,readonly) WMZFormRowModel *(^wFormCellAccessoryType)(UITableViewCellAccessoryType formAccessoryType);
+//ellSelectionStyle default  UITableViewCellSelectionStyleNone
+@property(nonatomic,assign,readonly) WMZFormRowModel *(^wFormSelectionStyle)(UITableViewCellSelectionStyle formSelectionStyle);
 //cell backGroundColor
 @property(nonatomic,strong,readonly) WMZFormRowModel *(^wFormCellBackGround) (UIColor* formCellBackGround);
 //showLine default NO
@@ -128,9 +130,10 @@ Example-FormCellTag
 @property(nonatomic,strong) id formCellName;
 @property(nonatomic,assign) BOOL formOpenRule;
 @property(nonatomic,assign) BOOL formRequired;
-@property(nonatomic,assign) BOOL formSliderDelete;
+@property(nonatomic,assign) UITableViewCellEditingStyle formEditingStyle;
 @property(nonatomic,assign) BOOL formShowLine;
 @property(nonatomic,assign) UITableViewCellAccessoryType formAccessoryType;
+@property(nonatomic,assign) UITableViewCellSelectionStyle formSelectionStyle;
 @property(nonatomic,assign) CGFloat formCellHeight;
 @property(nonatomic,  copy) FormCellViewClickBlock formClickBlock;
 @property(nonatomic,  copy) FormValueChangeBlock formValueChangeBlock;
@@ -161,6 +164,11 @@ Example-FormCellTag
 @property(nonatomic,strong,nullable) NSTimer *timer;
 @property(nonatomic,strong) id selectModel;
 @property(nonatomic,assign) BOOL valueChangeBlock;
+
+@property(nonatomic,strong,nullable)UIImage *addImage;
+@property(nonatomic,strong,nullable)UIImage *deleteImage;
+@property(nonatomic,assign)NSInteger deleteIndex;
+@property(nonatomic,assign)NSInteger addIndex;
 @end
 
 NS_ASSUME_NONNULL_END

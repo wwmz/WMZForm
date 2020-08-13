@@ -17,6 +17,8 @@ WMZFormSectionModel * FormSectionModel(void);
 @property(nonatomic,copy,readonly)   WMZFormSectionModel *(^wFormSectionKey)       (NSString* formSectionKey);
 //custom headView title default nil
 @property(nonatomic,copy,readonly)   WMZFormSectionModel *(^wFormHeadTitle)        (NSString*  formHeadTitle);
+//custom headView DetailTitle default nil
+@property(nonatomic,copy,readonly)   WMZFormSectionModel *(^wFormHeadDetailTitle)        (NSString*  formHeadDetailTitle);
 //custom headView height default 0.01
 @property(nonatomic,assign,readonly) WMZFormSectionModel *(^wFormHeadHeight)       (CGFloat  formHeadHeight);
 //custom footView title default nil
@@ -37,6 +39,9 @@ WMZFormSectionModel * FormSectionModel(void);
 @property(nonatomic,assign,readonly) WMZFormSectionModel *(^wFormCellHeight)       (CGFloat formCellHeight);
 //cellAccessoryType default  UITableViewCellAccessoryNone
 @property(nonatomic,assign,readonly) WMZFormSectionModel *(^wFormCellAccessoryType)(UITableViewCellAccessoryType formAccessoryType);
+//cellAccessoryType default  UITableViewCellAccessoryNone
+@property(nonatomic,assign,readonly) WMZFormSectionModel *(^wFormSelectionStyle)(UITableViewCellSelectionStyle formSelectionStyle);
+
 //custom nameLabel default nil
 @property(nonatomic,copy,readonly) WMZFormSectionModel *(^wFormCustomNameLabel)    (FormCustomLabel formCustomNameLabel);
 //custom detailLabel default nil
@@ -60,10 +65,14 @@ WMZFormSectionModel * FormSectionModel(void);
 // @"fold":@(YES) 可折叠
 //}
 @property(nonatomic,strong,readonly) WMZFormSectionModel *(^wFormSectionInfo)      (NSDictionary* formSectionInfo);
+//折叠是否关闭 default NO
+@property(nonatomic,strong,readonly) WMZFormSectionModel *(^wFormSectionClose)      (BOOL formSectionClose);
+
 
 //实例链式属性
 @property(nonatomic,strong) NSArray  *formSectionData;
 @property(nonatomic,  copy) NSString *formHeadTitle;
+@property(nonatomic,  copy) NSString *formHeadDetailTitle;
 @property(nonatomic,assign) CGFloat  formHeadHeight;
 @property(nonatomic,  copy) NSString *formFootTitle;
 @property(nonatomic,assign) CGFloat  formFootHeight;
@@ -74,6 +83,7 @@ WMZFormSectionModel * FormSectionModel(void);
 @property(nonatomic,strong) NSDictionary* formSectionInfo;
 @property(nonatomic,assign) BOOL formShowLine;
 @property(nonatomic,assign) UITableViewCellAccessoryType formAccessoryType;
+@property(nonatomic,assign) UITableViewCellSelectionStyle formSelectionStyle;
 @property(nonatomic,assign) CGFloat formCellHeight;
 @property(nonatomic,  copy) FormCustomLabel formCustomNameLabel;
 @property(nonatomic,  copy) FormCustomLabel formCustomDetailLabel;
@@ -87,7 +97,7 @@ WMZFormSectionModel * FormSectionModel(void);
 
 //特殊属性
 //展开状态
-@property(nonatomic,assign)BOOL open;
+@property(nonatomic,assign)BOOL formSectionClose;
 @property(nonatomic,assign) NSInteger  sectionIndex;
 @end
 

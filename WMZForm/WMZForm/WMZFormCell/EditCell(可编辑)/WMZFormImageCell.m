@@ -55,7 +55,7 @@
     CGFloat left = model.formRowData[@"left"]?[model.formRowData[@"left"] floatValue]:(FormXOffset);
     CGFloat width = model.formRowData[@"width"]?[model.formRowData[@"width"] floatValue]:(model.formWidth - FormXOffset - left);
     CGFloat imageWidth = model.formRowData[@"imageWidth"]?[model.formRowData[@"imageWidth"] floatValue]:((width- 2*FormImageOffset)/3);
-    self.nameLa.frame = CGRectMake(left,model.formName&&model.formName.length?top:0, width, model.formName&&model.formName.length?30:0);
+    self.nameLa.frame = CGRectMake(left,model.formName&&model.formName.length?top:0, model.formRowData[@"textAlign"]?80:width, model.formName&&model.formName.length?30:0);
     
 //    self.imageContainerView.frame = CGRectMake(left, CGRectGetMaxY(self.nameLa.frame)+FormYOffset, width, 0);
     NSInteger max = model.formRowData[@"maxCount"]?[model.formRowData[@"maxCount"] intValue]:FormMaxCount;
@@ -113,22 +113,39 @@
         imageView.frame = rect;
         lastImageView = imageView;
     }
-    self.imageContainerView.frame = CGRectMake(left,model.formName&&model.formName.length? (CGRectGetMaxY(self.nameLa.frame)+FormYOffset):top, width, CGRectGetMaxY(lastImageView.frame)+FormYOffset);
+    if (model.formRowData[@"textAlign"]) {
+        self.imageContainerView.frame = CGRectMake(CGRectGetMaxX(self.nameLa.frame)+ FormXOffset,model.formName&&model.formName.length? (CGRectGetMinY(self.nameLa.frame)):top, width, CGRectGetMaxY(lastImageView.frame)+FormYOffset);
+        
+    }else{
+        self.imageContainerView.frame = CGRectMake(left,model.formName&&model.formName.length? (CGRectGetMaxY(self.nameLa.frame)+FormYOffset):top, width, CGRectGetMaxY(lastImageView.frame)+FormYOffset);
+        
+    }
+
     model.formCellHeight = CGRectGetMaxY(self.imageContainerView.frame);
 }
 //图片点击
 - (void)tapTheImageView:(UITapGestureRecognizer*)ta{
     UIView *tagView = [ta view];
     if (tagView.tag==11111) {
+        UITableView *tableView = [self getMytableView];
+        [tableView endEditing:YES];
         FormWeakSelf(self)
         [self.tool getLocationImageWithSize:smallSize WithBlock:^(NSDictionary * _Nonnull info) {
             FormStrongSelf(weakObject)
             if (info[@"miniImage"]) {
-                if ([strongObject.photoArr indexOfObject:info[@"miniImage"]]==NSNotFound) {
-                    [strongObject.photoArr addObject:info[@"miniImage"]];
+                UIImage *image = info[@"miniImage"];
+                if ([strongObject.photoArr indexOfObject:image]==NSNotFound) {
+                    [strongObject.photoArr addObject:image];
+                    strongObject.model.deleteImage = nil;
+                    strongObject.model.addImage = image;
+                    strongObject.model.addIndex = strongObject.photoArr.count-1;
                     strongObject.model.formValue = [NSArray arrayWithArray:strongObject.photoArr];
                     [strongObject updateImageWithModel:strongObject.model];
                     [strongObject tableViewUpdate];
+                    if (strongObject.formDelagate&&[strongObject.formDelagate respondsToSelector:@selector(didSelectCell:target:action:)]) {
+                        [strongObject.formDelagate didSelectCell:self target:ta.view action:@"editImageAction"];
+                    }
+                    
                 }
             }
         }];
@@ -146,10 +163,17 @@
 //图片删除
 - (void)deleteImageBtnPressed:(UIButton*)sender{
     NSInteger tag = sender.superview.tag-10000;
+    self.model.deleteImage = self.photoArr[tag];
+    self.model.deleteIndex = tag;
+    self.model.addImage = nil;
     [self.photoArr removeObjectAtIndex:tag];
     self.model.formValue = [NSArray arrayWithArray:self.photoArr];
     [self updateImageWithModel:self.model];
     [self tableViewUpdate];
+    
+    if (self.formDelagate&&[self.formDelagate respondsToSelector:@selector(didSelectCell:target:action:)]) {
+        [self.formDelagate didSelectCell:self target:sender action:@"editImageAction"];
+    }
 }
 - (UIImage *)photoBrowser:(PhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
 {
@@ -160,7 +184,7 @@
 - (CGFloat)itemWidthForPicPathArray:(NSInteger )count normalWidth:(CGFloat)width
 {
     if (count == 1) {
-        return 200;
+        return width;
     } else {
         return width;
     }

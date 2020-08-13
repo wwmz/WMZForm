@@ -17,9 +17,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 #import "WMZDialog.h"
+#import "FormImagePickController.h"
 @interface WMZFormPhotoFunction()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic,copy)ImageBlock block;
 @property (nonatomic,assign)formImageSize size;
+@property (nonatomic,strong) FormPermission *permission;
 @end
 @implementation WMZFormPhotoFunction
 
@@ -34,13 +36,14 @@
 - (void)getLocationImageWithSize:(formImageSize)size WithBlock:(ImageBlock)block{
     self.size = size;
     self.block = block;
-    
     FormWeakSelf(self)
     Dialog()
     .wTypeSet(DialogTypeSheet)
+    .wTagSet(10086)
     .wShowAnimationSet(AninatonShowTop)
     .wHideAnimationSet(AninatonHideTop)
     .wAnimationDurtionSet(0.3)
+    .wOKColorSet(DialogColor(0x024596))
     .wDataSet(@[@"拍照",@"我的相册"])
     .wEventFinishSet(^(id anyID,NSIndexPath *path, DialogType type) {
         FormStrongSelf(weakObject)
@@ -55,8 +58,8 @@
 
 - (void)checkPermissionWithType:(FormPermissionType)type{
      FormWeakSelf(self)
-    FormPermission *permission = [FormPermission shareInstance];
-    [permission permissonType:type withHandle:^(BOOL granted, id data) {
+    self.permission = [FormPermission shareInstance];
+    [self.permission permissonType:type withHandle:^(BOOL granted, id data) {
          FormStrongSelf(weakObject)
         if (granted) {
             [strongObject pushImagePickerController:type == PermissionTypePhoto? @"image": @""];
@@ -94,7 +97,7 @@
         } else {
             image = [info objectForKey:UIImagePickerControllerOriginalImage];
         }
-        UIImage *miniImage = [self compressPictureWith:image withSize:self.size];
+        UIImage *miniImage = [WMZFormPhotoFunction compressPictureWith:image withSize:self.size];
         NSData *data = UIImageJPEGRepresentation(miniImage, 0.7);
         UIImage *normalImage = [UIImage imageWithData:data];
         if (self.block) {
@@ -112,7 +115,7 @@
 
 
 // 压缩图片
-- (UIImage *)compressPictureWith:(UIImage *)originnalImage withSize:(formImageSize)size{
++ (UIImage *)compressPictureWith:(UIImage *)originnalImage withSize:(formImageSize)size{
     NSDictionary *dic = @{
                           @(miniSize):@(120.0),
                           @(smallSize):@(300.0),

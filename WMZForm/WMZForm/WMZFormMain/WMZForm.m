@@ -20,28 +20,44 @@
 @implementation WMZForm
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        if (![IQKeyboardManager sharedManager].enable) {
-            [[IQKeyboardManager sharedManager] setEnable:YES];
-        }
-        if (![IQKeyboardManager sharedManager].enableAutoToolbar) {
-            [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
-        }
-        [self.arrayModel addObserver:self forKeyPath:@"dataArray" options:NSKeyValueObservingOptionNew context:nil];
-        self.tableView.frame = self.bounds;
-        [self addSubview:self.tableView];
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-        
-        self.emptyView = [[WMZFormEmptyView alloc]initWithFrame:self.bounds data:@{@"name":@"暂无数据",@"image":@"formIcon"}];
-        [self addSubview:self.emptyView];
+        [self setUp];
     }
     return self;
+}
+- (void)setUp{
+    if (![IQKeyboardManager sharedManager].enable) {
+        [[IQKeyboardManager sharedManager] setEnable:YES];
+    }
+    if (![IQKeyboardManager sharedManager].enableAutoToolbar) {
+        [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    }
+    [self.arrayModel addObserver:self forKeyPath:@"dataArray" options:NSKeyValueObservingOptionNew context:nil];
+    [self addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.edges.mas_equalTo(0);
+    }];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.emptyView = [[WMZFormEmptyView alloc]initWithFrame:self.bounds data:@{@"name":@"暂无数据",@"image":@"ic_noData"}];
+    [self.tableView addSubview:self.emptyView];
+    self.emptyView.hidden = YES;
+    self.emptyView.tag = 13178864836;
+    [self.emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+        make.height.equalTo(self.tableView.superview.mas_height).priorityHigh();
+        make.width.equalTo(self.tableView.superview.mas_width).priorityHigh();
+    }];
 }
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     if ([keyPath isEqualToString:@"dataArray"]) {
         self.change = YES;
-        self.tableView.hidden = !self.arrayModel.dataArray.count;
         self.emptyView.hidden = self.arrayModel.dataArray.count;
+        if (self.emptyView.data[@"hide"]) {
+            self.emptyView.hidden = YES;
+        }else{
+            self.emptyView.hidden = self.arrayModel.dataArray.count;
+        }
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -55,7 +71,7 @@
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     WMZFormFootView *footView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([WMZFormFootView class])];
     WMZFormSectionModel *model = [self wFindSectionModelWithIndex:section];
-    footView.contentView.backgroundColor = model.formFootBackGround?:FormColor(0xeeeeee);
+    footView.contentView.backgroundColor = model.formFootBackGround?:FormFootViewBgColor;
     footView.textLa.text = model?model.formFootTitle:@"";
     footView.accessBtn.hidden = YES;
     footView.contentView.hidden = model&&model.formSectionData.count?NO:YES;
@@ -64,12 +80,12 @@
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     WMZFormHeadView *headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([WMZFormHeadView class])];
     WMZFormSectionModel *model = [self wFindSectionModelWithIndex:section];
-    headView.contentView.backgroundColor = model.formHeadBackGround?:FormColor(0xeeeeee);
+    headView.contentView.backgroundColor = model.formHeadBackGround?:FormHeadViewBgColor;
     headView.textLa.text = model?model.formHeadTitle:@"";
-    headView.accessBtn.selected = model.open;
+    headView.detailLa.text = model?model.formHeadDetailTitle:@"";
+    headView.accessBtn.selected = model.formSectionClose;
     [headView.accessBtn setImage:[UIImage formBundleImage:@"form_dowm"] forState:UIControlStateNormal];
     [headView.accessBtn setImage:[UIImage formBundleImage:@"form_up"] forState:UIControlStateSelected];
-    headView.accessBtn.hidden = !model;
     headView.accessBtn.tag = 10000 + section;
     headView.accessBtn.hidden = !model.formSectionInfo[@"fold"];
     [headView.accessBtn addTarget:self action:@selector(headViewAccessBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -80,10 +96,10 @@
     id arr = self.nested?self.arrayModel.dataArray[section]:self.arrayModel.dataArray;
     NSInteger count = 1;
     if ([arr isKindOfClass:[NSArray class]]) {
-        count =  [arr count];
+        count =  [(NSArray*)arr count];
     }else if ([NSStringFromClass([arr class]) isEqualToString:@"WMZFormSectionModel"]) {
         WMZFormSectionModel *sectionModel = (WMZFormSectionModel*)arr;
-        count =  sectionModel.open?0:sectionModel.formSectionData.count;
+        count =  sectionModel.formSectionClose?0:sectionModel.formSectionData.count;
     }
     return count;
 }
@@ -120,14 +136,24 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     WMZFormRowModel *model =  [self getIndexData:indexPath];
-    return model.formSliderDelete;
+    return model.formEditingStyle != UITableViewCellEditingStyleNone;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewCellEditingStyleDelete;
+    WMZFormRowModel *model =  [self getIndexData:indexPath];
+    return model.formEditingStyle;
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        WMZFormBaseCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (self.formDelegate&&[self.formDelegate respondsToSelector:@selector(form:subViewDidSelectRowAtCell:view:type:)]) {
+            [self.formDelegate form:self subViewDidSelectRowAtCell:cell view:[UIView new] type:@"formDeleteAction"];
+        }
         [self wDeleteFormRowWithIndexPath:indexPath];
+    }else if (editingStyle == UITableViewCellEditingStyleInsert) {
+
+    }else if (editingStyle ==  (UITableViewCellEditingStyleInsert | UITableViewCellEditingStyleDelete)) {
+        
     }
 }
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -143,17 +169,29 @@
             [strongObject.tableView beginUpdates];
             [strongObject.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             [strongObject.tableView endUpdates];
+            
+            if (strongObject.formDelegate&&[strongObject.formDelegate respondsToSelector:@selector(form:didSelectRowAtCell:)]) {
+               [strongObject.formDelegate form:strongObject didSelectRowAtCell:[tableView cellForRowAtIndexPath:indexPath]];
+            }
         }];
     }else{
         if (self.formDelegate&&[self.formDelegate respondsToSelector:@selector(form:didSelectRowAtCell:)]) {
             [self.formDelegate form:self didSelectRowAtCell:[tableView cellForRowAtIndexPath:indexPath]];
         }
+        if (self.formDelegate&&[self.formDelegate respondsToSelector:@selector(form:didSelectRowAtCell:didDeselect:)]) {
+            [self.formDelegate form:self didSelectRowAtCell:[tableView cellForRowAtIndexPath:indexPath] didDeselect:NO];
+        }
+    }
+}
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.formDelegate&&[self.formDelegate respondsToSelector:@selector(form:didSelectRowAtCell:didDeselect:)]) {
+        [self.formDelegate form:self didSelectRowAtCell:[tableView cellForRowAtIndexPath:indexPath] didDeselect:YES];
     }
 }
 - (WMZFormRowModel*)getIndexData:(NSIndexPath*)indexPath{
     if (self.nested) {
         if ([self.arrayModel.dataArray[indexPath.section] isKindOfClass:[NSArray class]]) {
-            if ([self.arrayModel.dataArray[indexPath.section] count]>0) {
+            if ([(NSArray*)self.arrayModel.dataArray[indexPath.section] count]>0) {
                 return [self checkModel:self.arrayModel.dataArray[indexPath.section][indexPath.row]];
             }else{
                  return [self checkModel:nil];
@@ -176,72 +214,20 @@
 - (void)headViewAccessBtnAction:(UIButton*)sender{
     sender.selected = ![sender isSelected];
     WMZFormSectionModel *model = [self checkModel:self.arrayModel.dataArray[sender.tag - 10000] withClassName:@"WMZFormSectionModel" nested:YES];
-    model.open = [sender isSelected];
+    model.wFormSectionClose([sender isSelected]) ;
     [UIView setAnimationsEnabled:NO];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag - 10000] withRowAnimation:UITableViewRowAnimationNone];
     [UIView setAnimationsEnabled:YES];
 }
 #pragma -mark Celldelegate
-- (void)didSelectCell:(WMZFormBaseCell *)cell target:(UIView *)view action:(id)action{
+- (void)didSelectCell:(WMZFormBaseCell *)cell target:(id )view action:(id)action{
     if ([view isKindOfClass:[UIButton class]]&&
         [action isKindOfClass:[NSNumber class]]&&
         ([action intValue] == FormClickCommit)){
-        __block NSMutableArray *marr = [NSMutableArray new];
-        [self.arrayModel.dataArray enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj isKindOfClass:[WMZFormRowModel class]]) {
-                if (obj.formKey&&[obj.formKey length]) {
-                    [marr addObject:obj];
-                }
-            }else if ([obj isKindOfClass:[WMZFormSectionModel class]]){
-                WMZFormSectionModel *sender = (WMZFormSectionModel*)obj;
-                
-                [sender.formSectionData enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull row, NSUInteger idx, BOOL * _Nonnull stop) {
-                    if (row.formKey&&[row.formKey length]) {
-                        [marr addObject:row];
-                    }
-                }];
-            }else if ([obj isKindOfClass:[NSArray class]]){
-                NSArray *rowArr = (NSArray*)obj;
-                WMZFormRowModel *row = rowArr[0];
-                if (row&&row.formKey&&[row.formKey length]) {
-                    [marr addObject:row];
-                }
-            }
-        }];
-        
-        __block BOOL success = YES;
-        NSMutableDictionary *mDic = [NSMutableDictionary new];
-        [marr enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj isKindOfClass:[WMZFormRowModel class]]) {
-                __block NSMutableArray *marr = [NSMutableArray new];
-                if ([obj.formValue isKindOfClass:[NSArray class]]) {
-                    [obj.formValue enumerateObjectsUsingBlock:^(WMZFormTreeModel*  _Nonnull tree, NSUInteger idx, BOOL * _Nonnull stop) {
-                        if ([tree isKindOfClass:[WMZFormTreeModel class]]) {
-                            if (tree.isSelected) {
-                                [marr addObject:tree];
-                            }
-                        }
-                    }];
-                    [mDic setValue:marr.count?marr:@[] forKey:obj.formKey];
-                    if (!marr.count) {
-                        if (obj.formRequired) {
-                            success = NO;
-                        }
-                    }
-                }else{
-                    [mDic setValue:(obj.formValue?:@"") forKey:obj.formKey];
-                    if (!obj.formValue||
-                        ([obj.formValue isKindOfClass:[NSString class]]&&![obj.formValue length])) {
-                        success = NO;
-                        if (obj.formRequired) {
-                            success = NO;
-                        }
-                    }
-                }
-            }
-        }];
+        NSDictionary *info = [self getAllInfo];
+        BOOL success = [info[@"success"] boolValue];
         if (self.formDelegate&&[self.formDelegate respondsToSelector:@selector(form:info:canCommit:)]) {
-            [self.formDelegate form:self info:[NSDictionary dictionaryWithDictionary:mDic] canCommit:success];
+            [self.formDelegate form:self info:info[@"data"] canCommit:success];
         }
     }else{
         if (self.formDelegate&&[self.formDelegate respondsToSelector:@selector(form:subViewDidSelectRowAtCell:view:type:)]) {
@@ -252,6 +238,71 @@
         cell.model.formClickBlock(cell, action);
     }
 }
+
+- (NSDictionary*)getAllInfo{
+    __block NSMutableArray *marr = [NSMutableArray new];
+   [self.arrayModel.dataArray enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       if ([obj isKindOfClass:[WMZFormRowModel class]]) {
+           if (obj.formKey&&[obj.formKey length]) {
+               [marr addObject:obj];
+           }
+       }else if ([obj isKindOfClass:[WMZFormSectionModel class]]){
+           WMZFormSectionModel *sender = (WMZFormSectionModel*)obj;
+           
+           [sender.formSectionData enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull row, NSUInteger idx, BOOL * _Nonnull stop) {
+               if (row.formKey&&[row.formKey length]) {
+                   [marr addObject:row];
+               }
+           }];
+       }else if ([obj isKindOfClass:[NSArray class]]){
+           NSArray *rowArr = (NSArray*)obj;
+           WMZFormRowModel *row = rowArr[0];
+           if (row&&row.formKey&&[row.formKey length]) {
+               [marr addObject:row];
+           }
+       }
+   }];
+   
+   __block BOOL success = YES;
+   NSMutableDictionary *mDic = [NSMutableDictionary new];
+   [marr enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       if ([obj isKindOfClass:[WMZFormRowModel class]]) {
+           __block NSMutableArray *marr = [NSMutableArray new];
+           if ([obj.formValue isKindOfClass:[NSArray class]]) {
+               [obj.formValue enumerateObjectsUsingBlock:^(WMZFormTreeModel*  _Nonnull tree, NSUInteger idx, BOOL * _Nonnull stop) {
+                   if ([tree isKindOfClass:[WMZFormTreeModel class]]) {
+                       if (tree.isSelected) {
+                           [marr addObject:tree];
+                       }
+                   }else{
+                      [marr addObject:tree];
+                   }
+               }];
+               [mDic setValue:marr.count?marr:@[] forKey:obj.formKey];
+               if (!marr.count) {
+                   if (obj.formRequired) {
+                       success = NO;
+                   }
+               }
+           }else{
+               [mDic setValue:(obj.formValue?:@"") forKey:obj.formKey];
+               if (!obj.formValue||
+                   ([obj.formValue isKindOfClass:[NSString class]]&&![obj.formValue length])) {
+                   success = NO;
+                   if (obj.formRequired) {
+                       success = NO;
+                   }
+               }
+           }
+       }
+   }];
+    
+    return @{
+        @"data":mDic,
+        @"success":@(success)
+    };
+}
+
 - (WMZFormRowModel*)checkModel:(id)model{
     if (model&&[model isKindOfClass:[WMZFormRowModel class]]) {
         WMZFormRowModel *temp = (WMZFormRowModel*)model;
@@ -328,6 +379,10 @@
 - (BOOL)wDeleteFormRowWithIndexPath:(NSIndexPath*)indexPath{
    return [[[self findRowModelWithKey:nil withIndexPath:indexPath withType:FormFindRowTypeIndexPath actionType:FormRowActionDelete] objectForKey:@"result"] boolValue];
 }
+- (BOOL)wDeleteAll{
+    [[self.arrayModel mutableArrayValueForKeyPath:@"dataArray"] removeAllObjects];
+    return YES;
+}
 //reloadSection With key
 - (BOOL)wReloadSectionWithKey:(NSString*)key{
    return [[[self findSectionModelWithKey:key withIndex:0 withType:FormFindRowTypeKey actionType:FormRowActionReload] objectForKey:@"result"] boolValue];
@@ -376,6 +431,55 @@
     }
     [UIView setAnimationsEnabled:YES];
 }
+//getCount
+- (NSInteger)wGetCount{
+    NSInteger total = 0;
+    NSInteger sectionCount = self.nested?self.arrayModel.dataArray.count:(self.arrayModel.dataArray.count?1:0);
+    for (int i = 0; i<sectionCount; i++) {
+        id arr = self.nested?self.arrayModel.dataArray[i]:self.arrayModel.dataArray;
+        NSInteger count = 1;
+        if ([arr isKindOfClass:[NSArray class]]) {
+            count =  [(NSArray*)arr count];
+        }else if ([NSStringFromClass([arr class]) isEqualToString:@"WMZFormSectionModel"]) {
+            WMZFormSectionModel *sectionModel = (WMZFormSectionModel*)arr;
+            count =  sectionModel.formSectionClose?0:sectionModel.formSectionData.count;
+        }
+        total+=count;
+    }
+    return total;
+}
+
+//getModels 批量获取
+- (NSArray*)wFindRowModelsWithKey:(NSString*)key{
+    NSMutableArray *marr = [NSMutableArray new];
+    NSInteger sectionCount = self.nested?self.arrayModel.dataArray.count:(self.arrayModel.dataArray.count?1:0);
+    for (int i = 0; i<sectionCount; i++) {
+        id arr = self.nested?self.arrayModel.dataArray[i]:self.arrayModel.dataArray;
+        NSInteger count = 1;
+        if ([arr isKindOfClass:[NSArray class]]) {
+            count =  [(NSArray*)arr count];
+            [(NSArray*)arr enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj isKindOfClass:[WMZFormRowModel class]]) {
+                    if ([obj.formKey isEqualToString:key]) {
+                        [marr addObject:obj];
+                    }
+                }
+            }];
+        }else if ([NSStringFromClass([arr class]) isEqualToString:@"WMZFormSectionModel"]) {
+            WMZFormSectionModel *sectionModel = (WMZFormSectionModel*)arr;
+            count =  sectionModel.formSectionClose?0:sectionModel.formSectionData.count;
+            [sectionModel.formSectionData enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj isKindOfClass:[WMZFormRowModel class]]) {
+                     if ([obj.formKey isEqualToString:key]) {
+                         [marr addObject:obj];
+                     }
+                 }
+            }];
+        }
+    }
+    return [NSArray arrayWithArray:marr];
+}
+
 //addRow 非初始化增加row调用 插入index的位置 传入-1不刷新
 - (BOOL)wAddFormRow:(WMZFormRowModel*)rowModel atIndex:(NSInteger)index{
     __block BOOL result = NO;
@@ -548,6 +652,8 @@
     return mdic;
 }
 
+
+
 - (NSDictionary*)findSectionModelWithKey:(NSString*)key
                               withIndex:(NSInteger)index
                                withType:(FormFindRowType)typp
@@ -564,6 +670,8 @@
             NSLog(@"请输入正确的index");
             return [NSDictionary dictionaryWithDictionary:mdic];
         };
+    }else if(self.arrayModel.dataArray.count == 0){
+        return [NSDictionary dictionaryWithDictionary:mdic];
     }else{
         return [NSDictionary dictionaryWithDictionary:mdic];
     }
@@ -581,12 +689,14 @@
                }
         }];
     }else if (typp == FormFindRowTypeIndex) {
-        WMZFormSectionModel *sectionModel = self.arrayModel.dataArray[index];
-        if ([sectionModel isKindOfClass:[WMZFormSectionModel class]]) {
-            [mdic setObject:sectionModel forKey:@"sectionModel"];
-            [mdic setObject:@(index) forKey:@"sectionIndex"];
-            
+        if (index<self.arrayModel.dataArray.count) {
+            WMZFormSectionModel *sectionModel = self.arrayModel.dataArray[index];
+             if (sectionModel&&[sectionModel isKindOfClass:[WMZFormSectionModel class]]) {
+                 [mdic setObject:sectionModel forKey:@"sectionModel"];
+                 [mdic setObject:@(index) forKey:@"sectionIndex"];
+             }
         }
+ 
     }
     WMZFormSectionModel *sectionModel = mdic[@"sectionModel"];
     if (sectionModel) {
@@ -604,8 +714,31 @@
     [mdic setObject:sectionModel?@(YES):@(NO) forKey:@"result"];
     return mdic;
 }
+
+//getAllInfo
+- (NSDictionary*)wGetAllInfo{
+    return [self getAllInfo][@"data"];
+}
+
 WMZForm * Form(CGRect rect){
     return [[WMZForm alloc]initWithFrame:rect];
+}
+WMZForm * FormAuto(FormConstraint formConstraint,UIView *superView){
+    WMZForm *form = [[WMZForm alloc]initWithFrame:CGRectZero];
+    if (superView) {
+        [superView addSubview:form];
+        if (formConstraint) {
+            [form mas_makeConstraints:formConstraint];
+        }
+    }
+    return form;;
+}
+
+- (WMZForm * _Nonnull (^)(CGRect))wResetFrame{
+    return ^WMZForm*(CGRect resetFrame){
+        self.frame = resetFrame;
+        return self;
+    };
 }
 - (WMZForm * _Nonnull (^)(FormRowBlock _Nonnull))wAddFormRow{
     return ^WMZForm*(FormRowBlock addFormRow){
@@ -627,7 +760,7 @@ WMZForm * Form(CGRect rect){
 }
 - (WMZForm * _Nonnull (^)(NSDictionary * _Nonnull))wAddFormEmptyInfo{
     return ^WMZForm*(NSDictionary* formEmptyInfo){
-        self.emptyView.data = formEmptyInfo;
+       self.emptyView.data = formEmptyInfo;
        return self;
     };
 }

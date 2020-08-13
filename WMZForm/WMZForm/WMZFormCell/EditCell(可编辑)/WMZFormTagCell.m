@@ -85,7 +85,7 @@
     return cell;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.model.formValue count];
+    return [(NSArray *)self.model.formValue count];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     WMZFormTagCollectionViewCell *cell = (WMZFormTagCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];

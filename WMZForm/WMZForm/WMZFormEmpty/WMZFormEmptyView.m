@@ -13,20 +13,30 @@
 
 #import "WMZFormEmptyView.h"
 #import "UIImage+imageNameWithBundle.h"
+#import "WMZFormMacro.h"
 @implementation WMZFormEmptyView
 
 - (instancetype)initWithFrame:(CGRect)frame data:(NSDictionary*)dic{
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.imageView];
         [self addSubview:self.label];
+        [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(self.mas_width)
+            .multipliedBy(0.4).priorityHigh();
+            make.center.equalTo(self);
+        }];
+        [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.top.equalTo(self.imageView.mas_bottom).offset(5);
+            make.left.mas_equalTo(FormXOffset);
+            make.right.mas_equalTo(-FormXOffset);
+        }];
         self.data = dic;
     }
     return self;
 }
 - (void)setData:(NSDictionary *)data{
-    self.label.center = self.center;
-    self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, CGRectGetMinY(self.label.frame)-self.imageView.frame.size.height, self.imageView.frame.size.width, self.imageView.frame.size.height);
-    self.imageView.center = CGPointMake(self.center.x, self.imageView.center.y);
+    _data = data;
     self.imageView.image = [UIImage formBundleImage:data[@"image"]?:@"formIcon"];
     self.label.text = data[@"name"]?:@"暂无数据";
 }
@@ -35,7 +45,6 @@
         _imageView = [UIImageView new];
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.tag = 999;
-        _imageView.frame = CGRectMake(0, 0, self.bounds.size.width<200?self.bounds.size.width*0.8:200, self.bounds.size.height<200?self.bounds.size.height*0.8:200);
     }
     return _imageView;
 }
@@ -45,7 +54,7 @@
         _label = [UILabel new];
         _label.tag = 998;
         _label.textAlignment = NSTextAlignmentCenter;
-        _label.frame = CGRectMake(0, 0, self.bounds.size.width, 40);
+        _label.numberOfLines = 0;
     }
     return _label;
 }

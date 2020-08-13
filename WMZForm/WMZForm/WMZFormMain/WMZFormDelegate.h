@@ -22,6 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)form:(WMZForm*)form didSelectRowAtCell:(WMZFormBaseCell*)cell;
 
 /*
+ *formCell点击
+ @param cell  所在的cell (cell.model为model cell.indexPath 为其所在的indexPath)
+ @param didDeselect 取消点击
+ */
+- (void)form:(WMZForm*)form didSelectRowAtCell:(WMZFormBaseCell*)cell didDeselect:(BOOL)didDeselect;
+
+/*
  *form提交
  @param commitInfo  提交的信息 为一个带value和key的字典
  @param success  是否通过检验规则可以提交
@@ -36,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)form:(WMZForm*)form
         subViewDidSelectRowAtCell:(WMZFormBaseCell*)cell
-        view:(UIView*)clickView
+        view:(id)clickView
         type:(id)action;
 
 @end

@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WMZForm : WMZFormBase
 //initWithFrame
 WMZForm * Form(CGRect rect);
+WMZForm * FormAuto(FormConstraint formConstraint,UIView *superView);
 //addSection 初始化调用
 @property(nonatomic,copy,readonly) WMZForm *(^wAddFormSection)(FormSectionBlock addFormSection);
 //addRow 初始化调用
@@ -19,6 +20,8 @@ WMZForm * Form(CGRect rect);
 @property(nonatomic,weak,readonly) WMZForm *(^wAddFormDelegate)(id <WMZFormDelegate> addFormDelegate);
 //emptyView
 @property(nonatomic,copy,readonly) WMZForm *(^wAddFormEmptyInfo)(NSDictionary* formEmptyInfo);
+//resetFrame 重置frame
+@property(nonatomic,copy,readonly) WMZForm *(^wResetFrame)(CGRect rect);
 //addRow 非初始化增加row调用 默认插入最后
 - (BOOL)wAddFormRow:(WMZFormRowModel*)rowModel;
 //addRow 非初始化增加row调用 插入index的位置 传入-1不刷新
@@ -39,6 +42,8 @@ WMZForm * Form(CGRect rect);
 - (BOOL)wDeleteFormRowWithKey:(NSString*)key;
 //deleleRowWithIndexPath
 - (BOOL)wDeleteFormRowWithIndexPath:(NSIndexPath*)indexPath;
+//deleteAll
+- (BOOL)wDeleteAll;
 //reloadRow With key
 - (BOOL)wReloadRowWithKey:(NSString*)key;
 //reloadRow With indexPath
@@ -49,6 +54,8 @@ WMZForm * Form(CGRect rect);
 - (BOOL)wReloadSectionWithIndex:(NSInteger)index;
 //getRow With key
 - (WMZFormRowModel*)wFindRowModelWithKey:(NSString*)key;
+//getRows With key
+- (NSArray*)wFindRowModelsWithKey:(NSString*)key;
 //getRow With indexPath
 - (WMZFormRowModel*)wFindRowModelWithIndexPath:(NSIndexPath*)indexPath;
 //getSection With key
@@ -59,6 +66,10 @@ WMZForm * Form(CGRect rect);
 - (void)wReloadData;
 //自定义刷新
 - (void)wReloadData:(FormCustomReload)block;
+//getCount
+- (NSInteger)wGetCount;
+//getAllInfo
+- (NSDictionary*)wGetAllInfo;
 @end
 
 NS_ASSUME_NONNULL_END

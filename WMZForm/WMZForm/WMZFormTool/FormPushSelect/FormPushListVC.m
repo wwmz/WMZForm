@@ -39,6 +39,10 @@
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
         self.navigationItem.rightBarButtonItem = barItem;
     }
+    if (self.navigationController&&
+        !self.navigationController.navigationBar.translucent) {
+        self.extendedLayoutIncludesOpaqueBars = YES;
+    }
 }
 
 - (void)onBtnAction{
@@ -77,8 +81,7 @@
              FormRowModel()
             .wFormSelectInfo(@{@"check":@(YES)})
             .wFormRowData(row)
-            .wFormName(name)
-            .wFormShowLine(YES);
+            .wFormName(name);
             
             if (self.selectModel) {
                 if ([self.selectModel isKindOfClass:[NSArray class]]) {
@@ -88,6 +91,11 @@
                         }
                     }];
                 }
+            }
+            if ([row isKindOfClass:[NSDictionary class]]&&
+                row[@"isSelected"]&&
+                [row[@"isSelected"] boolValue]) {
+                model.isSelected = YES;
             }
             [marr addObject:model];
         }
@@ -102,6 +110,11 @@
         [sectionModel.formSectionData enumerateObjectsUsingBlock:^(WMZFormRowModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (idx!=cell.model.indexPath.row) {
                 obj.isSelected = NO;
+                if ([obj.formRowData isKindOfClass:[NSDictionary class]]) {
+                    NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithDictionary:obj.formRowData];
+                    [mdic setObject:@(NO) forKey:@"isSelected"];
+                    obj.wFormRowData(mdic);
+                }
             }
         }];
     }

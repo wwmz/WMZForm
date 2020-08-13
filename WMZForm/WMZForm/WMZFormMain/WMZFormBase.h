@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WMZFormHeadView : UITableViewHeaderFooterView
 @property(nonatomic,strong)UILabel *textLa;
+@property(nonatomic,strong)UILabel *detailLa;
 @property(nonatomic,strong)UIButton *accessBtn;
 @end
 @interface WMZFormFootView : WMZFormHeadView

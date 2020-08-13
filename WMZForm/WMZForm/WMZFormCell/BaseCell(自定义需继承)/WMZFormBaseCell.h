@@ -17,6 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WMZFormBaseCell : UITableViewCell<UITextFieldDelegate,WMZFormCellDelegate>
+@property(nonatomic,strong)UIView *BgView;
 @property(nonatomic,strong)UILabel *nameLa;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UILabel *detailLa;
@@ -34,5 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tableViewUpdate;
 //图片赋值
 - (void)setShowImage:(UIImageView *)imageView withData:(id)image key:(NSString*)key;
+- (void)setShowImage:(UIImageView *)imageView withData:(id)image key:(NSString*)key placeholderImage:(UIImage*)placeholderImage;
+//设置阴影圆角
+- (void)setBgView:(UIView*)view cornerRadius:(CGFloat)cornerRadius shadowRadius:(CGFloat)shadowRadius;
+- (void)UI;
+//设置富文本
+- (void)attributedTextWithInfo:(NSDictionary*)info label:(UILabel*)la text:(NSString*)text;
 @end
 NS_ASSUME_NONNULL_END

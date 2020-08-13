@@ -29,6 +29,13 @@ WMZFormSectionModel * FormSectionModel(void){
     };
 }
 
+- (WMZFormSectionModel * _Nonnull (^)(NSString * _Nonnull))wFormHeadDetailTitle{
+    return ^WMZFormSectionModel*(NSString * formHeadDetailTitle){
+        self.formHeadDetailTitle = formHeadDetailTitle;
+        return self;
+    };
+}
+
 - (WMZFormSectionModel * _Nonnull (^)(CGFloat))wFormHeadHeight{
     return ^WMZFormSectionModel*(CGFloat  formHeadHeight){
         self.formHeadHeight = formHeadHeight;
@@ -96,6 +103,12 @@ WMZFormSectionModel * FormSectionModel(void){
         return self;
     };
 }
+- (WMZFormSectionModel * _Nonnull (^)(UITableViewCellSelectionStyle))wFormSelectionStyle{
+    return ^WMZFormSectionModel*(UITableViewCellSelectionStyle formSelectionStyle){
+        self.formSelectionStyle = formSelectionStyle;
+        return self;
+    };
+}
 
 - (WMZFormSectionModel * _Nonnull (^)(NSString * _Nonnull))wFormSectionKey{
     return ^WMZFormSectionModel*(NSString* formSectionKey){
@@ -159,6 +172,14 @@ WMZFormSectionModel * FormSectionModel(void){
     };
 }
 
+- (WMZFormSectionModel * _Nonnull (^)(BOOL))wFormSectionClose{
+    return ^WMZFormSectionModel*(BOOL formSectionClose){
+        self.formSectionClose = formSectionClose;
+        return self;
+    };
+}
+
+
 - (void)setFormHeadTitle:(NSString *)formHeadTitle{
     _formHeadTitle = formHeadTitle;
     if (formHeadTitle&&
@@ -201,6 +222,10 @@ WMZFormSectionModel * FormSectionModel(void){
               rowModel.formAccessoryType == -1) {
               rowModel.formAccessoryType = self.formAccessoryType;
           }
+          if (self.formSelectionStyle!= -1 &&
+               rowModel.formSelectionStyle == -1) {
+               rowModel.formSelectionStyle = self.formSelectionStyle;
+           }
           if (self.formCellHeight!= 0 &&
               rowModel.formCellHeight == 0) {
               rowModel.formCellHeight = self.formCellHeight;
