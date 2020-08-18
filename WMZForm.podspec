@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "WMZForm"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.license      = "Copyright (c) 2020年 WMZ. All rights reserved."
